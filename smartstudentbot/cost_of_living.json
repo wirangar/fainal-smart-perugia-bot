@@ -1,0 +1,94 @@
+{
+  "version": "1.0",
+  "city": "Perugia",
+  "currency": "EUR",
+  "source": "Estimated data, last updated 2024-08",
+  "categories": [
+    {
+      "name": "accommodation",
+      "items": [
+        {
+          "name": "single_room",
+          "description": "Single room in a shared apartment",
+          "price_range": [250, 400],
+          "unit": "per month"
+        },
+        {
+          "name": "studio_apartment",
+          "description": "Studio apartment (monolocale)",
+          "price_range": [450, 600],
+          "unit": "per month"
+        },
+        {
+          "name": "utilities",
+          "description": "Basic utilities (electricity, heating, water, garbage) for one person",
+          "price_range": [80, 150],
+          "unit": "per month"
+        }
+      ]
+    },
+    {
+      "name": "food",
+      "items": [
+        {
+          "name": "groceries",
+          "description": "Monthly groceries for one person",
+          "price_range": [150, 250],
+          "unit": "per month"
+        },
+        {
+          "name": "meal_inexpensive_restaurant",
+          "description": "Meal at an inexpensive restaurant or pizzeria",
+          "price_range": [10, 20],
+          "unit": "per meal"
+        },
+        {
+          "name": "cappuccino",
+          "description": "Regular cappuccino",
+          "price_range": [1.30, 1.80],
+          "unit": "per cup"
+        }
+      ]
+    },
+    {
+      "name": "transportation",
+      "items": [
+        {
+          "name": "monthly_bus_pass",
+          "description": "Monthly public transport pass (Busitalia)",
+          "price_range": [35, 50],
+          "unit": "per month"
+        },
+        {
+          "name": "one_way_ticket",
+          "description": "One-way ticket on local transport",
+          "price_range": [1.50, 1.50],
+          "unit": "per ticket"
+        }
+      ]
+    },
+    {
+      "name": "other",
+      "items": [
+        {
+          "name": "gym_membership",
+          "description": "Monthly gym membership",
+          "price_range": [30, 60],
+          "unit": "per month"
+        },
+        {
+          "name": "internet",
+          "description": "Home internet (Wi-Fi)",
+          "price_range": [25, 35],
+          "unit": "per month"
+        },
+        {
+          "name": "permit_of_stay",
+          "description": "Permesso di Soggiorno application fee",
+          "price_range": [100, 150],
+          "unit": "initial cost"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "version": "1.0",
+  "sections": [
+    {
+      "name": "university",
+      "links": [
+        {
+          "name": "unipg_website",
+          "url": "https://www.unipg.it/en/"
+        },
+        {
+          "name": "international_students",
+          "url": "https://www.unipg.it/en/international-students"
+        }
+      ]
+    },
+    {
+      "name": "city_services",
+      "links": [
+        {
+          "name": "comune_perugia",
+          "url": "https://www.comune.perugia.it/"
+        },
+        {
+          "name": "questura_perugia",
+          "url": "https://questure.poliziadistato.it/it/Perugia"
+        }
+      ]
+    },
+    {
+      "name": "emergency",
+      "numbers": [
+        {
+          "name": "general_emergency",
+          "number": "112"
+        },
+        {
+          "name": "ambulance",
+          "number": "118"
+        },
+        {
+          "name": "police",
+          "number": "113"
+        }
+      ]
+    }
+  ]
+}
