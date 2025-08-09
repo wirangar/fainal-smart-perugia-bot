@@ -104,5 +104,22 @@
   "admin_approve_story_button": "تأیید",
   "admin_reject_story_button": "رد کردن",
   "admin_story_approved": "داستان {story_id} تأیید شد.",
-  "admin_story_rejected": "داستان {story_id} رد شد."
+  "admin_story_rejected": "داستان {story_id} رد شد.",
+
+  "roommate_menu_title": "هم‌اتاقی‌یاب",
+  "roommate_menu_intro": "اینجا می‌توانید برای پیدا کردن هم‌اتاقی یک پروفایل بسازید، یا به دنبال هم‌اتاقی‌های موجود بگردید.",
+  "roommate_button_create_profile": "ایجاد/ویرایش پروفایل من",
+  "roommate_button_search": "جستجوی هم‌اتاقی",
+  "roommate_button_toggle_active": "فعال کردن پروفایل",
+  "roommate_button_toggle_inactive": "غیرفعال کردن پروفایل",
+  "roommate_profile_active": "پروفایل شما اکنون فعال و برای دیگران قابل مشاهده است.",
+  "roommate_profile_inactive": "پروفایل شما اکنون غیرفعال و مخفی است.",
+  "roommate_form_ask_budget": "محدوده بودجه ماهانه شما برای اجاره به یورو چقدر است؟ (مثال: 250-350)",
+  "roommate_form_ask_locations": "به کدام محله‌ها علاقه دارید؟ (مثال: مرکز شهر، الچه)",
+  "roommate_form_ask_habits": "عادات و سبک زندگی خود را در چند کلمه توصیف کنید (مثال: ساکت، غیرسیگاری، دانشجو).",
+  "roommate_form_ask_about": "کمی در مورد خودتان و اینکه به دنبال چه نوع هم‌اتاقی هستید، به دیگران بگویید.",
+  "roommate_form_complete": "پروفایل شما ذخیره شد!",
+  "roommate_search_none_found": "در حال حاضر هیچ پروفایل هم‌اتاقی فعالی یافت نشد.",
+  "roommate_search_results_title": "چند هم‌اتاقی بالقوه پیدا شد:",
+  "roommate_profile_card": "👤 پروفایل {first_name}\n\nبودجه: {budget_min}-{budget_max} یورو\nمحله‌ها: {locations}\nعادات: {habits}\n\nدرباره: {about_me}"
 }

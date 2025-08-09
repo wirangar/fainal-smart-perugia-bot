@@ -74,6 +74,40 @@ async def update_story_status(session: AsyncSession, story_id: int, status: Stor
 
     return story
 
+# --- Roommate Profile Functions ---
+from models_db import RoommateProfile
+
+async def get_roommate_profile(session: AsyncSession, user_id: int) -> RoommateProfile:
+    """Retrieves a user's roommate profile."""
+    stmt = select(RoommateProfile).where(RoommateProfile.user_id == user_id)
+    result = await session.execute(stmt)
+    return result.scalar_one_or_none()
+
+async def create_or_update_roommate_profile(session: AsyncSession, user_id: int, profile_data: dict) -> RoommateProfile:
+    """Creates a new roommate profile or updates an existing one."""
+    profile = await get_roommate_profile(session, user_id)
+    if not profile:
+        profile = RoommateProfile(user_id=user_id, **profile_data)
+        session.add(profile)
+    else:
+        for key, value in profile_data.items():
+            setattr(profile, key, value)
+
+    await session.commit()
+    await session.refresh(profile)
+    return profile
+
+async def get_active_roommate_profiles(session: AsyncSession, user_id_to_exclude: int, limit: int = 10):
+    """Gets a list of active roommate profiles, excluding the current user."""
+    stmt = (
+        select(RoommateProfile)
+        .where(RoommateProfile.is_active == True)
+        .where(RoommateProfile.user_id != user_id_to_exclude)
+        .limit(limit)
+    )
+    result = await session.execute(stmt)
+    return result.scalars().all()
+
 
 # --- Middleware for DB Session ---
 from typing import Callable, Dict, Any, Awaitable

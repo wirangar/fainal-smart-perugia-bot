@@ -104,5 +104,22 @@
   "admin_approve_story_button": "Approve",
   "admin_reject_story_button": "Reject",
   "admin_story_approved": "Story {story_id} has been approved.",
-  "admin_story_rejected": "Story {story_id} has been rejected."
+  "admin_story_rejected": "Story {story_id} has been rejected.",
+
+  "roommate_menu_title": "Roommate Finder",
+  "roommate_menu_intro": "Here you can create a profile to find a roommate, or search for available roommates.",
+  "roommate_button_create_profile": "Create/Edit My Profile",
+  "roommate_button_search": "Search for Roommates",
+  "roommate_button_toggle_active": "Activate Profile",
+  "roommate_button_toggle_inactive": "Deactivate Profile",
+  "roommate_profile_active": "Your profile is now active and visible to others.",
+  "roommate_profile_inactive": "Your profile is now inactive and hidden.",
+  "roommate_form_ask_budget": "What is your monthly budget range for rent in EUR? (e.g., 250-350)",
+  "roommate_form_ask_locations": "Which neighborhoods are you interested in? (e.g., Centro, Elce)",
+  "roommate_form_ask_habits": "Describe your habits and lifestyle in a few words (e.g., quiet, non-smoker, student).",
+  "roommate_form_ask_about": "Tell everyone a little about yourself and what you're looking for in a roommate.",
+  "roommate_form_complete": "Your profile has been saved!",
+  "roommate_search_none_found": "No active roommate profiles found at the moment.",
+  "roommate_search_results_title": "Found some potential roommates:",
+  "roommate_profile_card": "👤 Profile of {first_name}\n\nBudget: {budget_min}-{budget_max}€\nLocations: {locations}\nHabits: {habits}\n\nAbout: {about_me}"
 }

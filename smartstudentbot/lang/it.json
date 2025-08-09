@@ -104,5 +104,22 @@
   "admin_approve_story_button": "Approva",
   "admin_reject_story_button": "Rifiuta",
   "admin_story_approved": "La storia {story_id} è stata approvata.",
-  "admin_story_rejected": "La storia {story_id} è stata rifiutata."
+  "admin_story_rejected": "La storia {story_id} è stata rifiutata.",
+
+  "roommate_menu_title": "Ricerca Coinquilino",
+  "roommate_menu_intro": "Qui puoi creare un profilo per trovare un coinquilino, o cercare coinquilini disponibili.",
+  "roommate_button_create_profile": "Crea/Modifica il mio profilo",
+  "roommate_button_search": "Cerca Coinquilini",
+  "roommate_button_toggle_active": "Attiva Profilo",
+  "roommate_button_toggle_inactive": "Disattiva Profilo",
+  "roommate_profile_active": "Il tuo profilo è ora attivo e visibile agli altri.",
+  "roommate_profile_inactive": "Il tuo profilo è ora inattivo e nascosto.",
+  "roommate_form_ask_budget": "Qual è il tuo budget mensile per l'affitto in EUR? (es. 250-350)",
+  "roommate_form_ask_locations": "A quali quartieri sei interessato? (es. Centro, Elce)",
+  "roommate_form_ask_habits": "Descrivi le tue abitudini e il tuo stile di vita in poche parole (es. tranquillo, non fumatore, studente).",
+  "roommate_form_ask_about": "Racconta un po' di te e di cosa cerchi in un coinquilino.",
+  "roommate_form_complete": "Il tuo profilo è stato salvato!",
+  "roommate_search_none_found": "Nessun profilo di coinquilino attivo trovato al momento.",
+  "roommate_search_results_title": "Trovati alcuni potenziali coinquilini:",
+  "roommate_profile_card": "👤 Profilo di {first_name}\n\nBudget: {budget_min}-{budget_max}€\nZone: {locations}\nAbitudini: {habits}\n\nSu di me: {about_me}"
 }

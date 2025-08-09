@@ -63,6 +63,21 @@ class SuccessStory(Base):
     def __repr__(self):
         return f"<SuccessStory(id={self.id}, user_id={self.user_id}, status='{self.status.name}')>"
 
+class RoommateProfile(Base):
+    __tablename__ = "roommate_profiles"
+    id = Column(Integer, primary_key=True)
+    user_id = Column(BigInteger, ForeignKey("users.user_id"), unique=True, nullable=False)
+    is_active = Column(Boolean, default=False, nullable=False)
+    budget_min = Column(Integer)
+    budget_max = Column(Integer)
+    location_preferences = Column(Text) # Comma-separated list of neighborhoods
+    habits = Column(Text) # e.g., "non-smoker, quiet, tidy"
+    about_me = Column(Text)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+
+    def __repr__(self):
+        return f"<RoommateProfile(user_id={self.user_id}, is_active={self.is_active})>"
+
 # --- Helper to create tables ---
 async def create_db_and_tables():
     """
