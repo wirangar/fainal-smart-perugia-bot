@@ -27,19 +27,24 @@ dp = None
 if not DISABLE_EXTERNAL_CALLS and TELEGRAM_BOT_TOKEN and TELEGRAM_BOT_TOKEN != "dummy_token":
     from aiogram import Bot, Dispatcher, types
     from aiogram.fsm.storage.memory import MemoryStorage
+    from utils.db_utils import DbSessionMiddleware
 
     storage = MemoryStorage()
     bot = Bot(token=TELEGRAM_BOT_TOKEN)
     dp = Dispatcher(storage=storage)
 
+    # Register middleware to pass DB session to handlers
+    dp.update.middleware(DbSessionMiddleware())
+
     # --- Router Imports ---
     from handlers import (
         cmd_start, admin_handler, ai_handler, group_handler, news_handler,
         cost_handler, info_handler, weather_handler, isee_handler, live_chat_handler,
-        guide_handler
+        guide_handler, success_story_handler
     )
     dp.include_router(cmd_start.router)
     dp.include_router(guide_handler.router)
+    dp.include_router(success_story_handler.router)
     dp.include_router(live_chat_handler.router)
     dp.include_router(cost_handler.router)
     dp.include_router(info_handler.router)
@@ -56,8 +61,11 @@ else:
     # but it won't have any handlers.
     from aiogram import Dispatcher, Bot, types
     from aiogram.fsm.storage.memory import MemoryStorage
+from utils.db_utils import DbSessionMiddleware
     bot = None # No bot instance
     dp = Dispatcher(storage=MemoryStorage())
+# Register middleware even if bot is disabled, for consistency
+dp.update.middleware(DbSessionMiddleware())
 
 
 # --- Webhook Endpoint ---
@@ -89,11 +97,13 @@ async def readiness_check():
     return {"status": "ready (bot disabled)"}
 
 
+from models_db import create_db_and_tables
+
 # --- Placeholder connection functions ---
 async def _connect_db():
-    logger.info("Connecting to Database...")
-    await asyncio.sleep(0.1) # Placeholder for real DB connection
-    logger.info("Database connection successful (mock).")
+    logger.info("Connecting to Database and creating tables...")
+    await create_db_and_tables()
+    logger.info("Database setup complete.")
     return True
 
 async def _connect_redis():

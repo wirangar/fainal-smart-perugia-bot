@@ -91,5 +91,18 @@
   "guide_topic_university_enrollment": "Iscrizione",
   "guide_topic_university_codice_fiscale": "Codice Fiscale",
   "guide_university_enrollment_content": "Dopo l'arrivo, è necessario completare l'iscrizione all'università. Di solito questo comporta una visita alla Segreteria Studenti del proprio dipartimento con i documenti (passaporto, visto, lettera di ammissione).",
-  "guide_university_codice_fiscale_content": "Il Codice Fiscale è un numero di identificazione fiscale italiano essenziale. Ne avrai bisogno per quasi tutto, inclusa l'apertura di un conto bancario e la firma di un contratto di affitto. Puoi ottenerlo presso l'Agenzia delle Entrate."
+  "guide_university_codice_fiscale_content": "Il Codice Fiscale è un numero di identificazione fiscale italiano essenziale. Ne avrai bisogno per quasi tutto, inclusa l'apertura di un conto bancario e la firma di un contratto di affitto. Puoi ottenerlo presso l'Agenzia delle Entrate.",
+
+  "success_story_menu": "Condividi la tua storia di successo o leggine una di un altro studente!",
+  "success_story_button_share": "Condividi la mia storia",
+  "success_story_button_read": "Leggi una storia",
+  "success_story_share_start": "Meraviglioso! Per favore, condividi la tua storia in un unico messaggio. Puoi anche allegare una foto o un breve video.",
+  "success_story_share_thanks": "Grazie per aver condiviso! La tua storia è stata inviata per l'approvazione.",
+  "success_story_read_none": "Al momento non ci sono storie di successo approvate da mostrare. Sii il primo a condividerne una!",
+  "success_story_from_user": "Una storia di successo da uno studente:",
+  "admin_approve_story_prompt": "Una nuova storia di successo è stata inviata per la revisione.\n\nStoria: {story_text}",
+  "admin_approve_story_button": "Approva",
+  "admin_reject_story_button": "Rifiuta",
+  "admin_story_approved": "La storia {story_id} è stata approvata.",
+  "admin_story_rejected": "La storia {story_id} è stata rifiutata."
 }

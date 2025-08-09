@@ -91,5 +91,18 @@
   "guide_topic_university_enrollment": "Enrollment (Iscrizione)",
   "guide_topic_university_codice_fiscale": "Codice Fiscale",
   "guide_university_enrollment_content": "After arriving, you must complete your enrollment at the university. This usually involves visiting the 'Segreteria Studenti' for your department with your documents (passport, visa, admission letter).",
-  "guide_university_codice_fiscale_content": "The 'Codice Fiscale' is an essential Italian tax identification number. You will need it for almost everything, including opening a bank account and signing a rental contract. You can get it from the 'Agenzia delle Entrate'."
+  "guide_university_codice_fiscale_content": "The 'Codice Fiscale' is an essential Italian tax identification number. You will need it for almost everything, including opening a bank account and signing a rental contract. You can get it from the 'Agenzia delle Entrate'.",
+
+  "success_story_menu": "Share your success story or read one from another student!",
+  "success_story_button_share": "Share My Story",
+  "success_story_button_read": "Read a Story",
+  "success_story_share_start": "Wonderful! Please share your story in a single message. You can also attach a photo or short video.",
+  "success_story_share_thanks": "Thank you for sharing! Your story has been submitted for approval.",
+  "success_story_read_none": "There are no approved success stories to show right now. Be the first to share one!",
+  "success_story_from_user": "A success story from a student:",
+  "admin_approve_story_prompt": "A new success story has been submitted for review.\n\nStory: {story_text}",
+  "admin_approve_story_button": "Approve",
+  "admin_reject_story_button": "Reject",
+  "admin_story_approved": "Story {story_id} has been approved.",
+  "admin_story_rejected": "Story {story_id} has been rejected."
 }

@@ -67,3 +67,28 @@ async def forward_message_to_user(message: types.Message, state: FSMContext):
         await message.bot.send_message(user_id, f"Admin: {message.text}")
     else:
         await message.copy_to(user_id)
+
+
+@router.callback_query(F.data.startswith("story_approve_") | F.data.startswith("story_reject_"))
+async def approve_reject_story(callback_query: types.CallbackQuery, session: AsyncSession):
+    """Handles an admin approving or rejecting a success story."""
+    action, story_id_str = callback_query.data.rsplit("_", 1)
+    story_id = int(story_id_str)
+
+    from models_db import StoryStatus
+    from utils.db_utils import update_story_status
+
+    new_status = StoryStatus.APPROVED if action == "story_approve" else StoryStatus.REJECTED
+
+    story = await update_story_status(session, story_id, new_status)
+
+    if not story:
+        await callback_query.answer("Story not found.", show_alert=True)
+        return
+
+    if new_status == StoryStatus.APPROVED:
+        await callback_query.message.edit_text(get_text("admin_story_approved", "en").format(story_id=story.id))
+    else:
+        await callback_query.message.edit_text(get_text("admin_story_rejected", "en").format(story_id=story.id))
+
+    await callback_query.answer()

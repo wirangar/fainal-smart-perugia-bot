@@ -91,5 +91,18 @@
   "guide_topic_university_enrollment": "ثبت‌نام (Iscrizione)",
   "guide_topic_university_codice_fiscale": "کد مالیاتی (Codice Fiscale)",
   "guide_university_enrollment_content": "پس از ورود، باید ثبت‌نام خود را در دانشگاه تکمیل کنید. این معمولاً شامل مراجعه به 'Segreteria Studenti' دپارتمان خود با مدارک (گذرنامه، ویزا، نامه پذیرش) است.",
-  "guide_university_codice_fiscale_content": "'کد مالیاتی' (Codice Fiscale) یک شماره شناسایی مالیاتی ضروری در ایتالیا است. تقریباً برای همه چیز، از جمله باز کردن حساب بانکی و امضای قرارداد اجاره، به آن نیاز خواهید داشت. می‌توانید آن را از 'Agenzia delle Entrate' دریافت کنید."
+  "guide_university_codice_fiscale_content": "'کد مالیاتی' (Codice Fiscale) یک شماره شناسایی مالیاتی ضروری در ایتالیا است. تقریباً برای همه چیز، از جمله باز کردن حساب بانکی و امضای قرارداد اجاره، به آن نیاز خواهید داشت. می‌توانید آن را از 'Agenzia delle Entrate' دریافت کنید.",
+
+  "success_story_menu": "داستان موفقیت خود را به اشتراک بگذارید یا داستان دانشجوی دیگری را بخوانید!",
+  "success_story_button_share": "اشتراک‌گذاری داستان من",
+  "success_story_button_read": "خواندن یک داستان",
+  "success_story_share_start": "عالی! لطفاً داستان خود را در یک پیام به اشتراک بگذارید. همچنین می‌توانید یک عکس یا ویدیوی کوتاه ضمیمه کنید.",
+  "success_story_share_thanks": "از اشتراک‌گذاری شما متشکریم! داستان شما برای تأیید ارسال شد.",
+  "success_story_read_none": "در حال حاضر هیچ داستان موفقیت تأیید شده‌ای برای نمایش وجود ندارد. اولین نفر باشید که یکی را به اشتراک می‌گذارد!",
+  "success_story_from_user": "یک داستان موفقیت از یک دانشجو:",
+  "admin_approve_story_prompt": "یک داستان موفقیت جدید برای بررسی ارسال شده است.\n\nداستان: {story_text}",
+  "admin_approve_story_button": "تأیید",
+  "admin_reject_story_button": "رد کردن",
+  "admin_story_approved": "داستان {story_id} تأیید شد.",
+  "admin_story_rejected": "داستان {story_id} رد شد."
 }
