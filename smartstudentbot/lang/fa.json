@@ -69,5 +69,27 @@
   "post_news_confirm": "مطلب خبری ایجاد شد و آماده انتشار است. عنوان: {title}",
   "post_news_success": "خبر با موفقیت منتشر شد!",
   "post_news_no_permission": "شما اجازه انتشار خبر را ندارید.",
-  "post_news_skip": "از ضمیمه کردن رسانه صرف نظر شد."
+  "post_news_skip": "از ضمیمه کردن رسانه صرف نظر شد.",
+
+  "guide_title": "راهنمای زندگی در پروجا",
+  "guide_intro": "این راهنمای شما برای زندگی در پروجا است. برای اطلاعات بیشتر یک موضوع را انتخاب کنید.",
+  "guide_back_button": "⬅️ بازگشت به منوی اصلی",
+  "guide_topic_visa": "🛂 ویزا و اجازه اقامت",
+  "guide_topic_housing": "🏘️ مسکن",
+  "guide_topic_university": "🎓 دانشگاه",
+  "guide_visa_intro": "اطلاعات در مورد رویه‌های ویزا و اجازه اقامت (Permesso di Soggiorno).",
+  "guide_topic_visa_pre_arrival": "قبل از ورود (سفارت)",
+  "guide_topic_visa_post_arrival": "پس از ورود (کوستورا)",
+  "guide_visa_pre_arrival_content": "قبل از ورود به ایتالیا، باید ویزای دانشجویی نوع D را از سفارت یا کنسولگری ایتالیا در کشور خود دریافت کنید. این فرآیند معمولاً به نامه پذیرش، اثبات تمکن مالی، جزئیات محل اقامت و بیمه درمانی نیاز دارد.",
+  "guide_visa_post_arrival_content": "ظرف ۸ روز پس از ورود به ایتالیا، باید برای اجازه اقامت (Permesso di Soggiorno) در کوستورای محلی (اداره پلیس) اقدام کنید. شما باید یک 'کیت' از اداره پست (Ufficio Postale) تهیه کرده، آن را پر کرده و ارسال کنید.",
+  "guide_housing_intro": "پیدا کردن مکانی برای زندگی در پروجا.",
+  "guide_topic_housing_options": "گزینه‌های مسکن",
+  "guide_topic_housing_contracts": "قراردادهای اجاره",
+  "guide_housing_options_content": "بیشتر دانشجویان در آپارتمان‌های اشتراکی ('appartamento condiviso') زندگی می‌کنند. یک اتاق یک نفره ('camera singola') رایج‌ترین گزینه است. می‌توانید آگهی‌ها را در وب‌سایت‌هایی مانند Immobiliare.it، Subito.it و گروه‌های مختلف فیسبوک پیدا کنید.",
+  "guide_housing_contracts_content": "همیشه بر یک قرارداد اجاره ثبت شده ('contratto di affitto registrato') اصرار کنید. رایج‌ترین نوع آن 'contratto transitorio per studenti' است. این برای اقامت و سایر امور قانونی بسیار مهم است.",
+  "guide_university_intro": "اطلاعات مربوط به دانشگاه.",
+  "guide_topic_university_enrollment": "ثبت‌نام (Iscrizione)",
+  "guide_topic_university_codice_fiscale": "کد مالیاتی (Codice Fiscale)",
+  "guide_university_enrollment_content": "پس از ورود، باید ثبت‌نام خود را در دانشگاه تکمیل کنید. این معمولاً شامل مراجعه به 'Segreteria Studenti' دپارتمان خود با مدارک (گذرنامه، ویزا، نامه پذیرش) است.",
+  "guide_university_codice_fiscale_content": "'کد مالیاتی' (Codice Fiscale) یک شماره شناسایی مالیاتی ضروری در ایتالیا است. تقریباً برای همه چیز، از جمله باز کردن حساب بانکی و امضای قرارداد اجاره، به آن نیاز خواهید داشت. می‌توانید آن را از 'Agenzia delle Entrate' دریافت کنید."
 }

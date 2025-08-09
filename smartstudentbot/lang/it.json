@@ -69,5 +69,27 @@
   "post_news_confirm": "Articolo di notizie creato e pronto per la pubblicazione. Titolo: {title}",
   "post_news_success": "Notizia pubblicata con successo!",
   "post_news_no_permission": "Non hai il permesso di pubblicare notizie.",
-  "post_news_skip": "Salto dell'allegato multimediale."
+  "post_news_skip": "Salto dell'allegato multimediale.",
+
+  "guide_title": "Guida alla vita a Perugia",
+  "guide_intro": "Questa è la tua guida per vivere a Perugia. Scegli un argomento per saperne di più.",
+  "guide_back_button": "⬅️ Torna al menu principale",
+  "guide_topic_visa": "🛂 Visto e Permesso di Soggiorno",
+  "guide_topic_housing": "🏘️ Alloggio",
+  "guide_topic_university": "🎓 Università",
+  "guide_visa_intro": "Informazioni sulle procedure per il visto e il Permesso di Soggiorno.",
+  "guide_topic_visa_pre_arrival": "Prima dell'arrivo (Ambasciata)",
+  "guide_topic_visa_post_arrival": "Dopo l'arrivo (Questura)",
+  "guide_visa_pre_arrival_content": "Prima di arrivare in Italia, è necessario ottenere un visto per studenti di tipo D presso l'ambasciata o il consolato italiano nel proprio paese d'origine. Il processo richiede in genere una lettera di ammissione, prova di mezzi finanziari, dettagli sull'alloggio e assicurazione sanitaria.",
+  "guide_visa_post_arrival_content": "Entro 8 giorni dall'arrivo in Italia, è OBBLIGATORIO richiedere il Permesso di Soggiorno presso la Questura locale. Sarà necessario ritirare un 'kit' presso un Ufficio Postale, compilarlo e presentarlo.",
+  "guide_housing_intro": "Trovare un posto dove vivere a Perugia.",
+  "guide_topic_housing_options": "Opzioni di alloggio",
+  "guide_topic_housing_contracts": "Contratti di affitto",
+  "guide_housing_options_content": "La maggior parte degli studenti vive in appartamenti condivisi. Una camera singola è l'opzione più comune. Puoi trovare annunci su siti web come Immobiliare.it, Subito.it e vari gruppi Facebook.",
+  "guide_housing_contracts_content": "Insisti sempre per un contratto di affitto registrato. Il tipo più comune è il 'contratto transitorio per studenti'. Questo è fondamentale per la residenza e altre questioni legali.",
+  "guide_university_intro": "Informazioni relative all'Università.",
+  "guide_topic_university_enrollment": "Iscrizione",
+  "guide_topic_university_codice_fiscale": "Codice Fiscale",
+  "guide_university_enrollment_content": "Dopo l'arrivo, è necessario completare l'iscrizione all'università. Di solito questo comporta una visita alla Segreteria Studenti del proprio dipartimento con i documenti (passaporto, visto, lettera di ammissione).",
+  "guide_university_codice_fiscale_content": "Il Codice Fiscale è un numero di identificazione fiscale italiano essenziale. Ne avrai bisogno per quasi tutto, inclusa l'apertura di un conto bancario e la firma di un contratto di affitto. Puoi ottenerlo presso l'Agenzia delle Entrate."
 }

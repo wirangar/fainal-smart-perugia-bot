@@ -69,5 +69,27 @@
   "post_news_confirm": "News article created and is ready to be published. Title: {title}",
   "post_news_success": "News published successfully!",
   "post_news_no_permission": "You do not have permission to post news.",
-  "post_news_skip": "Skipping media attachment."
+  "post_news_skip": "Skipping media attachment.",
+
+  "guide_title": "Living in Perugia Guide",
+  "guide_intro": "This is your guide to living in Perugia. Choose a topic to learn more.",
+  "guide_back_button": "⬅️ Back to Main Menu",
+  "guide_topic_visa": "🛂 Visa & Permit of Stay",
+  "guide_topic_housing": "🏘️ Housing",
+  "guide_topic_university": "🎓 University",
+  "guide_visa_intro": "Information about visa procedures and the Permit of Stay (Permesso di Soggiorno).",
+  "guide_topic_visa_pre_arrival": "Before Arrival (Embassy)",
+  "guide_topic_visa_post_arrival": "After Arrival (Questura)",
+  "guide_visa_pre_arrival_content": "Before arriving in Italy, you must obtain a Type-D student visa from the Italian embassy or consulate in your home country. The process typically requires an admission letter, proof of financial means, accommodation details, and health insurance.",
+  "guide_visa_post_arrival_content": "Within 8 days of arriving in Italy, you MUST apply for the Permit of Stay (Permesso di Soggiorno) at the local Questura (Police Headquarters). You will need to get a 'kit' from a Post Office (Ufficio Postale), fill it out, and submit it.",
+  "guide_housing_intro": "Finding a place to live in Perugia.",
+  "guide_topic_housing_options": "Housing Options",
+  "guide_topic_housing_contracts": "Rental Contracts",
+  "guide_housing_options_content": "Most students live in shared apartments ('appartamento condiviso'). A single room ('camera singola') is most common. You can find listings on websites like Immobiliare.it, Subito.it, and various Facebook groups.",
+  "guide_housing_contracts_content": "Always insist on a registered rental contract ('contratto di affitto registrato'). The most common type is 'contratto transitorio per studenti'. This is crucial for residency and other legal matters.",
+  "guide_university_intro": "Information related to the University.",
+  "guide_topic_university_enrollment": "Enrollment (Iscrizione)",
+  "guide_topic_university_codice_fiscale": "Codice Fiscale",
+  "guide_university_enrollment_content": "After arriving, you must complete your enrollment at the university. This usually involves visiting the 'Segreteria Studenti' for your department with your documents (passport, visa, admission letter).",
+  "guide_university_codice_fiscale_content": "The 'Codice Fiscale' is an essential Italian tax identification number. You will need it for almost everything, including opening a bank account and signing a rental contract. You can get it from the 'Agenzia delle Entrate'."
 }

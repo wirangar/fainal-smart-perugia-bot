@@ -35,9 +35,11 @@ if not DISABLE_EXTERNAL_CALLS and TELEGRAM_BOT_TOKEN and TELEGRAM_BOT_TOKEN != "
     # --- Router Imports ---
     from handlers import (
         cmd_start, admin_handler, ai_handler, group_handler, news_handler,
-        cost_handler, info_handler, weather_handler, isee_handler, live_chat_handler
+        cost_handler, info_handler, weather_handler, isee_handler, live_chat_handler,
+        guide_handler
     )
     dp.include_router(cmd_start.router)
+    dp.include_router(guide_handler.router)
     dp.include_router(live_chat_handler.router)
     dp.include_router(cost_handler.router)
     dp.include_router(info_handler.router)

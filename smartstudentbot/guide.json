@@ -1,0 +1,46 @@
+{
+  "version": "1.0",
+  "title_key": "guide_title",
+  "sections": {
+    "root": {
+      "text_key": "guide_intro",
+      "children": ["visa", "housing", "university"]
+    },
+    "visa": {
+      "text_key": "guide_visa_intro",
+      "children": ["visa_pre_arrival", "visa_post_arrival"]
+    },
+    "visa_pre_arrival": {
+      "text_key": "guide_visa_pre_arrival_content",
+      "children": []
+    },
+    "visa_post_arrival": {
+      "text_key": "guide_visa_post_arrival_content",
+      "children": []
+    },
+    "housing": {
+      "text_key": "guide_housing_intro",
+      "children": ["housing_options", "housing_contracts"]
+    },
+    "housing_options": {
+      "text_key": "guide_housing_options_content",
+      "children": []
+    },
+    "housing_contracts": {
+      "text_key": "guide_housing_contracts_content",
+      "children": []
+    },
+    "university": {
+      "text_key": "guide_university_intro",
+      "children": ["university_enrollment", "university_codice_fiscale"]
+    },
+    "university_enrollment": {
+      "text_key": "guide_university_enrollment_content",
+      "children": []
+    },
+    "university_codice_fiscale": {
+      "text_key": "guide_university_codice_fiscale_content",
+      "children": []
+    }
+  }
+}
