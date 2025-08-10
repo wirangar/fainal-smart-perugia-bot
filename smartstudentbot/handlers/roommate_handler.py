@@ -124,7 +124,16 @@ async def process_about(message: types.Message, state: FSMContext, session: Asyn
     profile_data = await state.get_data()
     profile_data.pop(UserState.language, None)
 
+    # Check if this is the first time they are creating the profile to award points
+    existing_profile = await get_roommate_profile(session, message.from_user.id)
+    is_first_creation = not existing_profile or not existing_profile.about_me
+
     await create_or_update_roommate_profile(session, message.from_user.id, profile_data)
+
+    if is_first_creation:
+        from utils.gamification_utils import award_points, PointsAction, grant_achievement, Achievement
+        await award_points(session, message.from_user.id, PointsAction.COMPLETE_PROFILE)
+        await grant_achievement(session, message.from_user.id, Achievement.FIRST_STEPS)
 
     await message.answer(get_text("roommate_form_complete", lang))
     await state.clear()

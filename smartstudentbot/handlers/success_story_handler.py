@@ -103,5 +103,10 @@ async def process_story_submission(message: types.Message, state: FSMContext, se
         except Exception as e:
             print(f"Failed to send story approval to admin {admin_id}: {e}")
 
+    # Award points for sharing
+    from utils.gamification_utils import award_points, PointsAction, grant_achievement, Achievement
+    await award_points(session, db_user.user_id, PointsAction.SHARE_SUCCESS_STORY)
+    await grant_achievement(session, db_user.user_id, Achievement.STORY_TELLER)
+
     await message.answer(get_text("success_story_share_thanks", lang))
     await state.clear()

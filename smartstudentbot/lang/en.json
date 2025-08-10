@@ -126,5 +126,14 @@
   "feedback_intro": "We'd love to hear your feedback! First, please rate the bot from 1 to 5 stars.",
   "feedback_ask_comment": "Thank you for the rating! Would you like to add an optional comment?",
   "feedback_thanks": "Thank you! Your feedback has been received and will help us improve.",
-  "feedback_skip_comment": "Got it. Thank you for your rating!"
+  "feedback_skip_comment": "Got it. Thank you for your rating!",
+
+  "gamification_points_title": "🏆 Your Points & Achievements",
+  "gamification_total_points": "Total Points: {points}",
+  "gamification_no_achievements": "You have no achievements yet. Keep exploring the bot to earn some!",
+  "gamification_achievements_title": "Your Achievements:",
+  "achievement_FIRST_STEPS": "First Steps",
+  "achievement_STORY_TELLER": "Story Teller",
+  "achievement_COMMUNITY_HERO": "Community Hero",
+  "achievement_VETERAN": "Veteran"
 }

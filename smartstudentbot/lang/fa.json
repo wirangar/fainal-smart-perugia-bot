@@ -126,5 +126,14 @@
   "feedback_intro": "خوشحال می‌شویم بازخورد شما را بشنویم! ابتدا، لطفاً به ربات از ۱ تا ۵ ستاره امتیاز دهید.",
   "feedback_ask_comment": "از امتیاز شما متشکریم! آیا مایل به افزودن یک نظر اختیاری هستید؟",
   "feedback_thanks": "متشکریم! بازخورد شما دریافت شد و به ما در بهبود کمک خواهد کرد.",
-  "feedback_skip_comment": "بسیار خب. از امتیاز شما متشکریم!"
+  "feedback_skip_comment": "بسیار خب. از امتیاز شما متشکریم!",
+
+  "gamification_points_title": "🏆 امتیازات و دستاوردهای شما",
+  "gamification_total_points": "مجموع امتیازات: {points}",
+  "gamification_no_achievements": "شما هنوز هیچ دستاوردی کسب نکرده‌اید. برای کسب دستاورد، به کاوش در ربات ادامه دهید!",
+  "gamification_achievements_title": "دستاوردهای شما:",
+  "achievement_FIRST_STEPS": "اولین قدم‌ها",
+  "achievement_STORY_TELLER": "راوی داستان",
+  "achievement_COMMUNITY_HERO": "قهرمان جامعه",
+  "achievement_VETERAN": "کاربر کهنه‌کار"
 }

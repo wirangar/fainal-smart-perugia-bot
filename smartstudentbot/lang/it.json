@@ -126,5 +126,14 @@
   "feedback_intro": "Ci piacerebbe ricevere il tuo feedback! Per prima cosa, valuta il bot da 1 a 5 stelle.",
   "feedback_ask_comment": "Grazie per la valutazione! Vuoi aggiungere un commento opzionale?",
   "feedback_thanks": "Grazie! Il tuo feedback è stato ricevuto e ci aiuterà a migliorare.",
-  "feedback_skip_comment": "Ricevuto. Grazie per la tua valutazione!"
+  "feedback_skip_comment": "Ricevuto. Grazie per la tua valutazione!",
+
+  "gamification_points_title": "🏆 I tuoi punti e obiettivi",
+  "gamification_total_points": "Punti totali: {points}",
+  "gamification_no_achievements": "Non hai ancora nessun obiettivo. Continua a esplorare il bot per guadagnarne alcuni!",
+  "gamification_achievements_title": "I tuoi obiettivi:",
+  "achievement_FIRST_STEPS": "Primi passi",
+  "achievement_STORY_TELLER": "Narratore",
+  "achievement_COMMUNITY_HERO": "Eroe della comunità",
+  "achievement_VETERAN": "Veterano"
 }

@@ -37,6 +37,18 @@ class StoryStatus(enum.Enum):
     APPROVED = "approved"
     REJECTED = "rejected"
 
+class PointsAction(enum.Enum):
+    COMPLETE_PROFILE = "complete_profile"
+    SHARE_SUCCESS_STORY = "share_success_story"
+    DAILY_LOGIN = "daily_login"
+    RECEIVE_FEEDBACK_RATING = "receive_feedback_rating"
+
+class Achievement(enum.Enum):
+    FIRST_STEPS = "first_steps" # Completed profile
+    STORY_TELLER = "story_teller" # Shared a success story
+    COMMUNITY_HERO = "community_hero" # Reached 100 points
+    VETERAN = "veteran" # Used the bot for 30 days
+
 # --- Table Models ---
 class User(Base):
     __tablename__ = "users"
@@ -88,6 +100,26 @@ class Feedback(Base):
 
     def __repr__(self):
         return f"<Feedback(user_id={self.user_id}, rating={self.rating})>"
+
+class UserPoints(Base):
+    __tablename__ = "user_points"
+    id = Column(Integer, primary_key=True)
+    user_id = Column(BigInteger, ForeignKey("users.user_id"), nullable=False)
+    points = Column(Integer, default=0, nullable=False)
+    last_updated = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+
+    def __repr__(self):
+        return f"<UserPoints(user_id={self.user_id}, points={self.points})>"
+
+class UserAchievement(Base):
+    __tablename__ = "user_achievements"
+    id = Column(Integer, primary_key=True)
+    user_id = Column(BigInteger, ForeignKey("users.user_id"), nullable=False)
+    achievement_id = Column(SAEnum(Achievement), nullable=False)
+    unlocked_at = Column(DateTime, default=datetime.utcnow)
+
+    def __repr__(self):
+        return f"<UserAchievement(user_id={self.user_id}, achievement='{self.achievement_id.name}')>"
 
 # --- Helper to create tables ---
 async def create_db_and_tables():
