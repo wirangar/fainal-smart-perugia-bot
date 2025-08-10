@@ -108,6 +108,17 @@ async def get_active_roommate_profiles(session: AsyncSession, user_id_to_exclude
     result = await session.execute(stmt)
     return result.scalars().all()
 
+# --- Feedback Functions ---
+from models_db import Feedback
+
+async def add_feedback(session: AsyncSession, feedback_data: dict) -> Feedback:
+    """Adds a new feedback entry to the database."""
+    new_feedback = Feedback(**feedback_data)
+    session.add(new_feedback)
+    await session.commit()
+    await session.refresh(new_feedback)
+    return new_feedback
+
 
 # --- Middleware for DB Session ---
 from typing import Callable, Dict, Any, Awaitable

@@ -78,6 +78,17 @@ class RoommateProfile(Base):
     def __repr__(self):
         return f"<RoommateProfile(user_id={self.user_id}, is_active={self.is_active})>"
 
+class Feedback(Base):
+    __tablename__ = "feedback"
+    id = Column(Integer, primary_key=True)
+    user_id = Column(BigInteger, ForeignKey("users.user_id"), nullable=False)
+    rating = Column(Integer, nullable=False) # e.g., 1-5
+    text = Column(Text)
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+    def __repr__(self):
+        return f"<Feedback(user_id={self.user_id}, rating={self.rating})>"
+
 # --- Helper to create tables ---
 async def create_db_and_tables():
     """

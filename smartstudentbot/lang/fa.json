@@ -121,5 +121,10 @@
   "roommate_form_complete": "پروفایل شما ذخیره شد!",
   "roommate_search_none_found": "در حال حاضر هیچ پروفایل هم‌اتاقی فعالی یافت نشد.",
   "roommate_search_results_title": "چند هم‌اتاقی بالقوه پیدا شد:",
-  "roommate_profile_card": "👤 پروفایل {first_name}\n\nبودجه: {budget_min}-{budget_max} یورو\nمحله‌ها: {locations}\nعادات: {habits}\n\nدرباره: {about_me}"
+  "roommate_profile_card": "👤 پروفایل {first_name}\n\nبودجه: {budget_min}-{budget_max} یورو\nمحله‌ها: {locations}\nعادات: {habits}\n\nدرباره: {about_me}",
+
+  "feedback_intro": "خوشحال می‌شویم بازخورد شما را بشنویم! ابتدا، لطفاً به ربات از ۱ تا ۵ ستاره امتیاز دهید.",
+  "feedback_ask_comment": "از امتیاز شما متشکریم! آیا مایل به افزودن یک نظر اختیاری هستید؟",
+  "feedback_thanks": "متشکریم! بازخورد شما دریافت شد و به ما در بهبود کمک خواهد کرد.",
+  "feedback_skip_comment": "بسیار خب. از امتیاز شما متشکریم!"
 }

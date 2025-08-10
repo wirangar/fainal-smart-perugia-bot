@@ -121,5 +121,10 @@
   "roommate_form_complete": "Il tuo profilo è stato salvato!",
   "roommate_search_none_found": "Nessun profilo di coinquilino attivo trovato al momento.",
   "roommate_search_results_title": "Trovati alcuni potenziali coinquilini:",
-  "roommate_profile_card": "👤 Profilo di {first_name}\n\nBudget: {budget_min}-{budget_max}€\nZone: {locations}\nAbitudini: {habits}\n\nSu di me: {about_me}"
+  "roommate_profile_card": "👤 Profilo di {first_name}\n\nBudget: {budget_min}-{budget_max}€\nZone: {locations}\nAbitudini: {habits}\n\nSu di me: {about_me}",
+
+  "feedback_intro": "Ci piacerebbe ricevere il tuo feedback! Per prima cosa, valuta il bot da 1 a 5 stelle.",
+  "feedback_ask_comment": "Grazie per la valutazione! Vuoi aggiungere un commento opzionale?",
+  "feedback_thanks": "Grazie! Il tuo feedback è stato ricevuto e ci aiuterà a migliorare.",
+  "feedback_skip_comment": "Ricevuto. Grazie per la tua valutazione!"
 }
