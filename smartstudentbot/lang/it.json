@@ -167,5 +167,9 @@
   "sim_final_verdict_good": "Hai gestito bene la settimana! Sei uno studente equilibrato.",
   "sim_final_verdict_bad_grades": "Ti sei divertito, ma i tuoi voti ne stanno risentendo. È ora di mettersi sui libri!",
   "sim_final_verdict_unhappy": "I tuoi voti sono buoni, ma sembri infelice. Non dimenticare di goderti la vita da studente!",
-  "sim_final_verdict_broke": "Hai finito i soldi! È stata una settimana difficile."
+  "sim_final_verdict_broke": "Hai finito i soldi! È stata una settimana difficile.",
+
+  "podcast_title": "🎧 Podcast SmartStudent",
+  "podcast_intro": "Ecco gli ultimi episodi del podcast per te:",
+  "podcast_episode_caption": "🎙️ {title}\n\n{description}"
 }

@@ -167,5 +167,9 @@
   "sim_final_verdict_good": "هفته را به خوبی مدیریت کردی! تو یک دانشجوی متعادل هستی.",
   "sim_final_verdict_bad_grades": "خوش گذراندی، اما نمراتت در حال افت است. وقتشه که بری سراغ کتاب‌ها!",
   "sim_final_verdict_unhappy": "نمراتت خوب است، اما ناراحت به نظر می‌رسی. فراموش نکن که از زندگی دانشجویی لذت ببری!",
-  "sim_final_verdict_broke": "پول تمام کردی! هفته سختی بود."
+  "sim_final_verdict_broke": "پول تمام کردی! هفته سختی بود.",
+
+  "podcast_title": "🎧 پادکست‌های دانشجوی هوشمند",
+  "podcast_intro": "در اینجا آخرین قسمت‌های پادکست برای شما آمده است:",
+  "podcast_episode_caption": "🎙️ {title}\n\n{description}"
 }

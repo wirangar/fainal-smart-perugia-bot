@@ -41,10 +41,11 @@ if not DISABLE_EXTERNAL_CALLS and TELEGRAM_BOT_TOKEN and TELEGRAM_BOT_TOKEN != "
         cmd_start, admin_handler, ai_handler, group_handler, news_handler,
         cost_handler, info_handler, weather_handler, isee_handler, live_chat_handler,
         guide_handler, success_story_handler, roommate_handler, feedback_handler,
-        gamification_handler, discount_handler, simulation_handler
+        gamification_handler, discount_handler, simulation_handler, podcast_handler
     )
     dp.include_router(cmd_start.router)
     dp.include_router(guide_handler.router)
+    dp.include_router(podcast_handler.router)
     dp.include_router(simulation_handler.router)
     dp.include_router(discount_handler.router)
     dp.include_router(gamification_handler.router)
