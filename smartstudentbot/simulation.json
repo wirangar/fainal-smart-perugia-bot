@@ -1,0 +1,100 @@
+{
+  "version": "1.0",
+  "initial_stats": {
+    "money": 100,
+    "happiness": 70,
+    "grades": 60,
+    "energy": 80
+  },
+  "game_duration_days": 7,
+  "events": [
+    {
+      "id": "weekend_choice",
+      "text_key": "sim_event_weekend_choice",
+      "choices": [
+        {
+          "text_key": "sim_choice_study_hard",
+          "outcomes": {
+            "money": 0,
+            "happiness": -10,
+            "grades": 15,
+            "energy": -20
+          },
+          "feedback_key": "sim_feedback_study_hard"
+        },
+        {
+          "text_key": "sim_choice_party",
+          "outcomes": {
+            "money": -20,
+            "happiness": 25,
+            "grades": -10,
+            "energy": -30
+          },
+          "feedback_key": "sim_feedback_party"
+        },
+        {
+          "text_key": "sim_choice_rest",
+          "outcomes": {
+            "money": 0,
+            "happiness": 5,
+            "grades": 0,
+            "energy": 40
+          },
+          "feedback_key": "sim_feedback_rest"
+        }
+      ]
+    },
+    {
+      "id": "exam_approaching",
+      "text_key": "sim_event_exam_approaching",
+      "choices": [
+        {
+          "text_key": "sim_choice_cram",
+          "outcomes": {
+            "money": -5,
+            "happiness": -15,
+            "grades": 20,
+            "energy": -25
+          },
+          "feedback_key": "sim_feedback_cram"
+        },
+        {
+          "text_key": "sim_choice_ignore",
+          "outcomes": {
+            "money": 0,
+            "happiness": 10,
+            "grades": -25,
+            "energy": 5
+          },
+          "feedback_key": "sim_feedback_ignore"
+        }
+      ]
+    },
+    {
+      "id": "part_time_job_offer",
+      "text_key": "sim_event_job_offer",
+      "choices": [
+        {
+          "text_key": "sim_choice_accept_job",
+          "outcomes": {
+            "money": 50,
+            "happiness": 5,
+            "grades": -5,
+            "energy": -20
+          },
+          "feedback_key": "sim_feedback_accept_job"
+        },
+        {
+          "text_key": "sim_choice_reject_job",
+          "outcomes": {
+            "money": 0,
+            "happiness": 0,
+            "grades": 5,
+            "energy": 10
+          },
+          "feedback_key": "sim_feedback_reject_job"
+        }
+      ]
+    }
+  ]
+}
