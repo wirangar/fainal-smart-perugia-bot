@@ -182,5 +182,22 @@
   "admin_appointment_confirmed": "Appointment {appointment_id} has been confirmed.",
   "admin_appointment_cancelled": "Appointment {appointment_id} has been cancelled.",
   "user_appointment_confirmed": "✅ Your appointment regarding '{topic}' has been confirmed!",
-  "user_appointment_cancelled": "❌ Unfortunately, your appointment regarding '{topic}' could not be scheduled at this time. Please try requesting another time."
+  "user_appointment_cancelled": "❌ Unfortunately, your appointment regarding '{topic}' could not be scheduled at this time. Please try requesting another time.",
+
+  "events_title": "📅 Upcoming Events",
+  "events_intro": "Here are some upcoming events. Click to register!",
+  "events_none": "No upcoming events scheduled at the moment.",
+  "event_card": "📌 {title}\n\n{description}\n\n🗓️ Date: {datetime}\n📍 Location: {location}",
+  "event_register_button": "Register",
+  "event_registration_success": "✅ You have successfully registered for '{title}'.",
+  "event_registration_full": "Sorry, the event '{title}' is already full.",
+  "event_registration_already": "You are already registered for '{title}'.",
+
+  "search_prompt": "What are you looking for? Type your query after the command, e.g., `/search visa`",
+  "search_no_query": "Please provide a search term after the command.",
+  "search_results_title": "🔍 Search Results for '{query}':",
+  "search_no_results": "No results found for '{query}'.",
+  "search_result_in_news": "Found in News: *{title}*",
+  "search_result_in_discounts": "Found in Discounts: *{name}* - {description}",
+  "search_result_in_guide": "Found in Guide: *{section_title}*"
 }

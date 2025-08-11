@@ -37,10 +37,16 @@ class StoryStatus(enum.Enum):
     APPROVED = "approved"
     REJECTED = "rejected"
 
-class AppointmentStatus(enum.Enum):
-    PENDING = "pending"
+class EventType(enum.Enum):
+    APPOINTMENT = "appointment"
+    SEMINAR = "seminar"
+    WORKSHOP = "workshop"
+
+class EventStatus(enum.Enum):
+    PENDING = "pending" # For appointments needing confirmation
     CONFIRMED = "confirmed"
     CANCELLED = "cancelled"
+    FULL = "full"
 
 class PointsAction(enum.Enum):
     COMPLETE_PROFILE = "complete_profile"
@@ -126,18 +132,66 @@ class UserAchievement(Base):
     def __repr__(self):
         return f"<UserAchievement(user_id={self.user_id}, achievement='{self.achievement_id.name}')>"
 
-class Appointment(Base):
-    __tablename__ = "appointments"
+class Event(Base):
+    __tablename__ = "events"
     id = Column(Integer, primary_key=True)
+    title = Column(String, nullable=False)
+    description = Column(Text)
+    event_type = Column(SAEnum(EventType), nullable=False)
+    event_datetime = Column(DateTime, nullable=False)
+    location = Column(String)
+    max_attendees = Column(Integer, default=0) # 0 for unlimited
+    status = Column(SAEnum(EventStatus), default=EventStatus.CONFIRMED, nullable=False)
+    created_by = Column(BigInteger, ForeignKey("users.user_id")) # Can be user or admin
+
+    def __repr__(self):
+        return f"<Event(id={self.id}, title='{self.title}', type='{self.event_type.name}')>"
+
+class EventAttendee(Base):
+    __tablename__ = "event_attendees"
+    id = Column(Integer, primary_key=True)
+    event_id = Column(Integer, ForeignKey("events.id"), nullable=False)
     user_id = Column(BigInteger, ForeignKey("users.user_id"), nullable=False)
-    topic = Column(String, nullable=False)
-    preferred_datetime = Column(String, nullable=False)
-    status = Column(SAEnum(AppointmentStatus), default=AppointmentStatus.PENDING, nullable=False)
-    admin_id = Column(BigInteger) # Which admin confirmed it
+    registered_at = Column(DateTime, default=datetime.utcnow)
+
+    def __repr__(self):
+        return f"<EventAttendee(event_id={self.event_id}, user_id={self.user_id})>"
+
+class News(Base):
+    __tablename__ = "news"
+    id = Column(Integer, primary_key=True)
+    title = Column(String, nullable=False)
+    content = Column(Text, nullable=False)
+    media_id = Column(String)
+    media_type = Column(String)
+    posted_by = Column(BigInteger, ForeignKey("users.user_id"))
     created_at = Column(DateTime, default=datetime.utcnow)
 
     def __repr__(self):
-        return f"<Appointment(id={self.id}, user_id={self.user_id}, status='{self.status.name}')>"
+        return f"<News(id={self.id}, title='{self.title}')>"
+
+class Discount(Base):
+    __tablename__ = "discounts"
+    id = Column(Integer, primary_key=True)
+    name = Column(String, nullable=False)
+    category = Column(String)
+    description = Column(Text)
+    location = Column(String)
+    validity = Column(String)
+
+    def __repr__(self):
+        return f"<Discount(id={self.id}, name='{self.name}')>"
+
+class Podcast(Base):
+    __tablename__ = "podcasts"
+    id = Column(Integer, primary_key=True)
+    title = Column(String, nullable=False)
+    description = Column(Text)
+    audio_file_id = Column(String, nullable=False)
+    duration_seconds = Column(Integer)
+
+    def __repr__(self):
+        return f"<Podcast(id={self.id}, title='{self.title}')>"
 
 # --- Helper to create tables ---
 async def create_db_and_tables():

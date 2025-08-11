@@ -182,5 +182,22 @@
   "admin_appointment_confirmed": "L'appuntamento {appointment_id} è stato confermato.",
   "admin_appointment_cancelled": "L'appuntamento {appointment_id} è stato annullato.",
   "user_appointment_confirmed": "✅ Il tuo appuntamento riguardo a '{topic}' è stato confermato!",
-  "user_appointment_cancelled": "❌ Purtroppo, il tuo appuntamento riguardo a '{topic}' non ha potuto essere programmato in questo momento. Prova a richiedere un altro orario."
+  "user_appointment_cancelled": "❌ Purtroppo, il tuo appuntamento riguardo a '{topic}' non ha potuto essere programmato in questo momento. Prova a richiedere un altro orario.",
+
+  "events_title": "📅 Prossimi Eventi",
+  "events_intro": "Ecco alcuni prossimi eventi. Clicca per registrarti!",
+  "events_none": "Nessun evento imminente in programma al momento.",
+  "event_card": "📌 {title}\n\n{description}\n\n🗓️ Data: {datetime}\n📍 Luogo: {location}",
+  "event_register_button": "Registrati",
+  "event_registration_success": "✅ Ti sei registrato con successo per '{title}'.",
+  "event_registration_full": "Spiacenti, l'evento '{title}' è al completo.",
+  "event_registration_already": "Sei già registrato per '{title}'.",
+
+  "search_prompt": "Cosa stai cercando? Digita la tua richiesta dopo il comando, es. `/search visto`",
+  "search_no_query": "Per favore, fornisci un termine di ricerca dopo il comando.",
+  "search_results_title": "🔍 Risultati della ricerca per '{query}':",
+  "search_no_results": "Nessun risultato trovato per '{query}'.",
+  "search_result_in_news": "Trovato nelle notizie: *{title}*",
+  "search_result_in_discounts": "Trovato negli sconti: *{name}* - {description}",
+  "search_result_in_guide": "Trovato nella guida: *{section_title}*"
 }

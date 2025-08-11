@@ -119,30 +119,86 @@ async def add_feedback(session: AsyncSession, feedback_data: dict) -> Feedback:
     await session.refresh(new_feedback)
     return new_feedback
 
-# --- Appointment Functions ---
-from models_db import Appointment, AppointmentStatus
+# --- Event & Appointment Functions ---
+from models_db import Event, EventAttendee, EventStatus, EventType
+from sqlalchemy import func
 
-async def create_appointment(session: AsyncSession, appointment_data: dict) -> Appointment:
-    """Creates a new appointment request."""
-    new_appointment = Appointment(**appointment_data)
-    session.add(new_appointment)
+async def create_event(session: AsyncSession, event_data: dict) -> Event:
+    """Creates a new event (e.g., appointment, seminar)."""
+    new_event = Event(**event_data)
+    session.add(new_event)
     await session.commit()
-    await session.refresh(new_appointment)
-    return new_appointment
+    await session.refresh(new_event)
+    return new_event
 
-async def update_appointment_status(session: AsyncSession, appointment_id: int, status: AppointmentStatus, admin_id: int) -> Appointment:
-    """Updates the status of an appointment."""
-    stmt = select(Appointment).where(Appointment.id == appointment_id)
+async def get_upcoming_events(session: AsyncSession, limit: int = 10) -> list[Event]:
+    """Retrieves a list of upcoming, confirmed events."""
+    stmt = (
+        select(Event)
+        .where(Event.status == EventStatus.CONFIRMED)
+        .where(Event.event_datetime > func.now())
+        .order_by(Event.event_datetime.asc())
+        .limit(limit)
+    )
     result = await session.execute(stmt)
-    appointment = result.scalar_one_or_none()
+    return result.scalars().all()
 
-    if appointment:
-        appointment.status = status
-        appointment.admin_id = admin_id
-        await session.commit()
-        await session.refresh(appointment)
+async def register_user_for_event(session: AsyncSession, user_id: int, event_id: int) -> tuple[bool, str]:
+    """Registers a user for an event, checking for availability."""
+    # Check if already registered
+    stmt_check = select(EventAttendee).where(EventAttendee.user_id == user_id, EventAttendee.event_id == event_id)
+    if (await session.execute(stmt_check)).scalar_one_or_none():
+        return False, "already_registered"
 
-    return appointment
+    # Check for capacity
+    stmt_event = select(Event).where(Event.id == event_id)
+    event = (await session.execute(stmt_event)).scalar_one()
+    if event.max_attendees > 0:
+        stmt_count = select(func.count(EventAttendee.id)).where(EventAttendee.event_id == event_id)
+        attendee_count = (await session.execute(stmt_count)).scalar()
+        if attendee_count >= event.max_attendees:
+            return False, "event_full"
+
+    # Register user
+    new_registration = EventAttendee(user_id=user_id, event_id=event_id)
+    session.add(new_registration)
+    await session.commit()
+    return True, "success"
+
+# --- News Functions ---
+from models_db import News
+
+async def add_news(session: AsyncSession, news_data: dict) -> News:
+    """Adds a new news article to the database."""
+    new_news = News(**news_data)
+    session.add(new_news)
+    await session.commit()
+    await session.refresh(new_news)
+    return new_news
+
+async def get_latest_news(session: AsyncSession, limit: int = 5) -> list[News]:
+    """Retrieves the latest news articles."""
+    stmt = select(News).order_by(News.created_at.desc()).limit(limit)
+    result = await session.execute(stmt)
+    return result.scalars().all()
+
+# --- Discount Functions ---
+from models_db import Discount
+
+async def get_all_discounts(session: AsyncSession) -> list[Discount]:
+    """Retrieves all discounts from the database."""
+    stmt = select(Discount).order_by(Discount.category, Discount.name)
+    result = await session.execute(stmt)
+    return result.scalars().all()
+
+# --- Podcast Functions ---
+from models_db import Podcast
+
+async def get_all_podcasts(session: AsyncSession) -> list[Podcast]:
+    """Retrieves all podcasts from the database."""
+    stmt = select(Podcast).order_by(Podcast.id)
+    result = await session.execute(stmt)
+    return result.scalars().all()
 
 
 # --- Middleware for DB Session ---

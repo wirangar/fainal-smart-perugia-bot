@@ -182,5 +182,22 @@
   "admin_appointment_confirmed": "قرار ملاقات {appointment_id} تأیید شد.",
   "admin_appointment_cancelled": "قرار ملاقات {appointment_id} لغو شد.",
   "user_appointment_confirmed": "✅ قرار ملاقات شما در مورد «{topic}» تأیید شد!",
-  "user_appointment_cancelled": "❌ متاسفانه، قرار ملاقات شما در مورد «{topic}» در این زمان قابل تنظیم نبود. لطفاً زمان دیگری را درخواست کنید."
+  "user_appointment_cancelled": "❌ متاسفانه، قرار ملاقات شما در مورد «{topic}» در این زمان قابل تنظیم نبود. لطفاً زمان دیگری را درخواست کنید.",
+
+  "events_title": "📅 رویدادهای پیش رو",
+  "events_intro": "در اینجا برخی از رویدادهای آینده آمده است. برای ثبت نام کلیک کنید!",
+  "events_none": "در حال حاضر هیچ رویداد برنامه‌ریزی شده‌ای وجود ندارد.",
+  "event_card": "📌 {title}\n\n{description}\n\n🗓️ تاریخ: {datetime}\n📍 مکان: {location}",
+  "event_register_button": "ثبت نام",
+  "event_registration_success": "✅ شما با موفقیت برای «{title}» ثبت نام کردید.",
+  "event_registration_full": "متاسفانه، ظرفیت رویداد «{title}» تکمیل شده است.",
+  "event_registration_already": "شما قبلاً برای «{title}» ثبت نام کرده‌اید.",
+
+  "search_prompt": "به دنبال چه چیزی هستید؟ عبارت خود را بعد از دستور تایپ کنید، مثال: `/search visa`",
+  "search_no_query": "لطفاً یک عبارت برای جستجو بعد از دستور وارد کنید.",
+  "search_results_title": "🔍 نتایج جستجو برای «{query}»:",
+  "search_no_results": "هیچ نتیجه‌ای برای «{query}» یافت نشد.",
+  "search_result_in_news": "یافت شده در اخبار: *{title}*",
+  "search_result_in_discounts": "یافت شده در تخفیف‌ها: *{name}* - {description}",
+  "search_result_in_guide": "یافت شده در راهنما: *{section_title}*"
 }
