@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Manage News - Admin Panel{% endblock %}
+
+{% block content %}
+    <h2>Manage News Articles</h2>
+
+    <div class="form-container">
+        <h3>{% if article %}Edit Article{% else %}Add New Article{% endif %}</h3>
+        <form action="/admin/news/add" method="post">
+            <input type="hidden" name="article_id" value="{{ article.id if article else '' }}">
+
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" value="{{ article.title if article else '' }}" required>
+
+            <label for="content">Content:</label>
+            <textarea id="content" name="content" rows="6" required>{{ article.content if article else '' }}</textarea>
+
+            <button type="submit">{% if article %}Update Article{% else %}Add Article{% endif %}</button>
+        </form>
+    </div>
+
+    <div class="list-container">
+        <h3>Existing Articles</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Created At</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in news_list %}
+                <tr>
+                    <td>{{ item.title }}</td>
+                    <td>{{ item.created_at.strftime('%Y-%m-%d %H:%M') }}</td>
+                    <td>
+                        <a href="/admin/news/edit/{{ item.id }}">Edit</a> |
+                        <a href="/admin/news/delete/{{ item.id }}" onclick="return confirm('Are you sure?')">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

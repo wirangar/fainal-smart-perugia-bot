@@ -28,3 +28,5 @@ babel==2.16.0
 tenacity==9.0.0
 jsonschema==4.23.0
 alembic==1.13.2
+python-multipart==0.0.9
+itsdangerous==2.2.0

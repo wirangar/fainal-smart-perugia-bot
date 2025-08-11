@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Admin Panel{% endblock %}
+
+{% block content %}
+    <h2>Welcome to the Dashboard</h2>
+    <p>This is the main control panel for the SmartStudentBot.</p>
+
+    <div class="stats-container">
+        <div class="stat-card">
+            <h3>Total Users</h3>
+            <p>{{ stats.total_users }}</p>
+        </div>
+        <div class="stat-card">
+            <h3>News Articles</h3>
+            <p>{{ stats.total_news }}</p>
+        </div>
+        <div class="stat-card">
+            <h3>Pending Stories</h3>
+            <p>{{ stats.pending_stories }}</p>
+        </div>
+    </div>
+
+    <p>More features will be added here soon.</p>
+{% endblock %}

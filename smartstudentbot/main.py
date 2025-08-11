@@ -15,8 +15,16 @@ from config import (
 logging.basicConfig(level=logging.INFO if not DEV_MODE else logging.DEBUG)
 logger = logging.getLogger(__name__)
 
+from fastapi.staticfiles import StaticFiles
+from admin_web import routes as admin_routes
+
 # Initialize FastAPI app
 app = FastAPI()
+
+# Mount the admin web panel and static files
+app.mount("/static", StaticFiles(directory="smartstudentbot/admin_web/static"), name="static")
+app.include_router(admin_routes.router, prefix="/admin", tags=["admin"])
+
 
 # --- Conditional Bot Initialization ---
 bot = None

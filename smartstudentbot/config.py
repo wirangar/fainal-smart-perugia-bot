@@ -49,3 +49,8 @@ FEATURE_FLAGS = {
     "NEWS": _as_bool(os.getenv("FEATURE_NEWS", "1")),
     "AI": _as_bool(os.getenv("FEATURE_AI", "0")),  # Disabled in dev by default
 }
+
+# --- Web Admin Panel ---
+ADMIN_USERNAME = os.getenv("ADMIN_USERNAME", "admin")
+ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", "supersecretpassword") # CHANGE THIS IN PRODUCTION
+SESSION_SECRET_KEY = os.getenv("SESSION_SECRET_KEY", "another-super-secret-key") # For signing cookies
