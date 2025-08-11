@@ -171,5 +171,16 @@
 
   "podcast_title": "🎧 پادکست‌های دانشجوی هوشمند",
   "podcast_intro": "در اینجا آخرین قسمت‌های پادکست برای شما آمده است:",
-  "podcast_episode_caption": "🎙️ {title}\n\n{description}"
+  "podcast_episode_caption": "🎙️ {title}\n\n{description}",
+
+  "appointment_intro": "بیایید یک قرار ملاقات با تیم ما رزرو کنیم. موضوع مشاوره شما چیست؟",
+  "appointment_ask_time": "بسیار خب. چه روز و ساعتی برای شما بهتر است؟ (لطفاً در صورت امکان چند گزینه ارائه دهید)",
+  "appointment_thanks": "متشکریم. درخواست قرار ملاقات شما ثبت شد. زمانی که یک ادمین آن را تأیید کند، به شما اطلاع خواهیم داد.",
+  "admin_appointment_request": "یک قرار ملاقات جدید توسط کاربر {user_id} ({user_name}) درخواست شده است.\n\nموضوع: {topic}\nزمان ترجیحی: {time}",
+  "admin_appointment_confirm_button": "تأیید",
+  "admin_appointment_cancel_button": "لغو",
+  "admin_appointment_confirmed": "قرار ملاقات {appointment_id} تأیید شد.",
+  "admin_appointment_cancelled": "قرار ملاقات {appointment_id} لغو شد.",
+  "user_appointment_confirmed": "✅ قرار ملاقات شما در مورد «{topic}» تأیید شد!",
+  "user_appointment_cancelled": "❌ متاسفانه، قرار ملاقات شما در مورد «{topic}» در این زمان قابل تنظیم نبود. لطفاً زمان دیگری را درخواست کنید."
 }

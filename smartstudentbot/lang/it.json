@@ -171,5 +171,16 @@
 
   "podcast_title": "🎧 Podcast SmartStudent",
   "podcast_intro": "Ecco gli ultimi episodi del podcast per te:",
-  "podcast_episode_caption": "🎙️ {title}\n\n{description}"
+  "podcast_episode_caption": "🎙️ {title}\n\n{description}",
+
+  "appointment_intro": "Prendiamo un appuntamento con il nostro team. Qual è l'argomento della tua consulenza?",
+  "appointment_ask_time": "Capito. Che giorno e ora sarebbero migliori per te? (Se possibile, fornisci alcune opzioni)",
+  "appointment_thanks": "Grazie. La tua richiesta di appuntamento è stata inviata. Ti avviseremo quando un amministratore la confermerà.",
+  "admin_appointment_request": "Un nuovo appuntamento è stato richiesto dall'utente {user_id} ({user_name}).\n\nArgomento: {topic}\nOrario preferito: {time}",
+  "admin_appointment_confirm_button": "Conferma",
+  "admin_appointment_cancel_button": "Annulla",
+  "admin_appointment_confirmed": "L'appuntamento {appointment_id} è stato confermato.",
+  "admin_appointment_cancelled": "L'appuntamento {appointment_id} è stato annullato.",
+  "user_appointment_confirmed": "✅ Il tuo appuntamento riguardo a '{topic}' è stato confermato!",
+  "user_appointment_cancelled": "❌ Purtroppo, il tuo appuntamento riguardo a '{topic}' non ha potuto essere programmato in questo momento. Prova a richiedere un altro orario."
 }

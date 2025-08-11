@@ -37,6 +37,11 @@ class StoryStatus(enum.Enum):
     APPROVED = "approved"
     REJECTED = "rejected"
 
+class AppointmentStatus(enum.Enum):
+    PENDING = "pending"
+    CONFIRMED = "confirmed"
+    CANCELLED = "cancelled"
+
 class PointsAction(enum.Enum):
     COMPLETE_PROFILE = "complete_profile"
     SHARE_SUCCESS_STORY = "share_success_story"
@@ -120,6 +125,19 @@ class UserAchievement(Base):
 
     def __repr__(self):
         return f"<UserAchievement(user_id={self.user_id}, achievement='{self.achievement_id.name}')>"
+
+class Appointment(Base):
+    __tablename__ = "appointments"
+    id = Column(Integer, primary_key=True)
+    user_id = Column(BigInteger, ForeignKey("users.user_id"), nullable=False)
+    topic = Column(String, nullable=False)
+    preferred_datetime = Column(String, nullable=False)
+    status = Column(SAEnum(AppointmentStatus), default=AppointmentStatus.PENDING, nullable=False)
+    admin_id = Column(BigInteger) # Which admin confirmed it
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+    def __repr__(self):
+        return f"<Appointment(id={self.id}, user_id={self.user_id}, status='{self.status.name}')>"
 
 # --- Helper to create tables ---
 async def create_db_and_tables():

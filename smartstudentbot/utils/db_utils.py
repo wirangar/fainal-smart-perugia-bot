@@ -119,6 +119,31 @@ async def add_feedback(session: AsyncSession, feedback_data: dict) -> Feedback:
     await session.refresh(new_feedback)
     return new_feedback
 
+# --- Appointment Functions ---
+from models_db import Appointment, AppointmentStatus
+
+async def create_appointment(session: AsyncSession, appointment_data: dict) -> Appointment:
+    """Creates a new appointment request."""
+    new_appointment = Appointment(**appointment_data)
+    session.add(new_appointment)
+    await session.commit()
+    await session.refresh(new_appointment)
+    return new_appointment
+
+async def update_appointment_status(session: AsyncSession, appointment_id: int, status: AppointmentStatus, admin_id: int) -> Appointment:
+    """Updates the status of an appointment."""
+    stmt = select(Appointment).where(Appointment.id == appointment_id)
+    result = await session.execute(stmt)
+    appointment = result.scalar_one_or_none()
+
+    if appointment:
+        appointment.status = status
+        appointment.admin_id = admin_id
+        await session.commit()
+        await session.refresh(appointment)
+
+    return appointment
+
 
 # --- Middleware for DB Session ---
 from typing import Callable, Dict, Any, Awaitable

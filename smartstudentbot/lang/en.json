@@ -171,5 +171,16 @@
 
   "podcast_title": "🎧 SmartStudent Podcasts",
   "podcast_intro": "Here are the latest podcast episodes for you:",
-  "podcast_episode_caption": "🎙️ {title}\n\n{description}"
+  "podcast_episode_caption": "🎙️ {title}\n\n{description}",
+
+  "appointment_intro": "Let's book an appointment with our team. What is the topic of your consultation?",
+  "appointment_ask_time": "Got it. What day and time would be best for you? (Please provide a few options if possible)",
+  "appointment_thanks": "Thank you. Your appointment request has been submitted. We will notify you when an admin confirms it.",
+  "admin_appointment_request": "A new appointment has been requested by user {user_id} ({user_name}).\n\nTopic: {topic}\nPreferred Time: {time}",
+  "admin_appointment_confirm_button": "Confirm",
+  "admin_appointment_cancel_button": "Cancel",
+  "admin_appointment_confirmed": "Appointment {appointment_id} has been confirmed.",
+  "admin_appointment_cancelled": "Appointment {appointment_id} has been cancelled.",
+  "user_appointment_confirmed": "✅ Your appointment regarding '{topic}' has been confirmed!",
+  "user_appointment_cancelled": "❌ Unfortunately, your appointment regarding '{topic}' could not be scheduled at this time. Please try requesting another time."
 }
