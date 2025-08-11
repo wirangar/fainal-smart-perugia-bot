@@ -193,6 +193,18 @@
   "event_registration_full": "Sorry, the event '{title}' is already full.",
   "event_registration_already": "You are already registered for '{title}'.",
 
+  "docs_menu": "📄 Your Documents",
+  "docs_upload_prompt": "Please send the document you want to upload.",
+  "docs_ask_category": "Document received. Please choose a category for this file:",
+  "docs_category_general": "General",
+  "docs_category_visa": "Visa/Permit",
+  "docs_category_university": "University",
+  "docs_upload_success": "✅ Your document '{filename}' has been successfully uploaded and saved.",
+  "docs_upload_failed": "❌ Sorry, there was an error uploading your document. Please try again later.",
+  "docs_no_documents": "You haven't uploaded any documents yet. Use /upload to add one.",
+  "docs_list_title": "Your uploaded documents:",
+  "docs_file_entry": "📄 {filename} (Category: {category})",
+
   "search_prompt": "What are you looking for? Type your query after the command, e.g., `/search visa`",
   "search_no_query": "Please provide a search term after the command.",
   "search_results_title": "🔍 Search Results for '{query}':",

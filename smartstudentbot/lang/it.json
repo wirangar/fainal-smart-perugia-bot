@@ -193,6 +193,18 @@
   "event_registration_full": "Spiacenti, l'evento '{title}' è al completo.",
   "event_registration_already": "Sei già registrato per '{title}'.",
 
+  "docs_menu": "📄 I tuoi documenti",
+  "docs_upload_prompt": "Per favore, invia il documento che desideri caricare.",
+  "docs_ask_category": "Documento ricevuto. Scegli una categoria per questo file:",
+  "docs_category_general": "Generale",
+  "docs_category_visa": "Visto/Permesso",
+  "docs_category_university": "Università",
+  "docs_upload_success": "✅ Il tuo documento '{filename}' è stato caricato e salvato con successo.",
+  "docs_upload_failed": "❌ Spiacenti, si è verificato un errore durante il caricamento del documento. Riprova più tardi.",
+  "docs_no_documents": "Non hai ancora caricato nessun documento. Usa /upload per aggiungerne uno.",
+  "docs_list_title": "I tuoi documenti caricati:",
+  "docs_file_entry": "📄 {filename} (Categoria: {category})",
+
   "search_prompt": "Cosa stai cercando? Digita la tua richiesta dopo il comando, es. `/search visto`",
   "search_no_query": "Per favore, fornisci un termine di ricerca dopo il comando.",
   "search_results_title": "🔍 Risultati della ricerca per '{query}':",

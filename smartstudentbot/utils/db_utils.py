@@ -200,6 +200,23 @@ async def get_all_podcasts(session: AsyncSession) -> list[Podcast]:
     result = await session.execute(stmt)
     return result.scalars().all()
 
+# --- Document Functions ---
+from models_db import Document
+
+async def add_document(session: AsyncSession, doc_data: dict) -> Document:
+    """Adds a new document record to the database."""
+    new_doc = Document(**doc_data)
+    session.add(new_doc)
+    await session.commit()
+    await session.refresh(new_doc)
+    return new_doc
+
+async def get_user_documents(session: AsyncSession, user_id: int) -> list[Document]:
+    """Retrieves all documents for a specific user."""
+    stmt = select(Document).where(Document.user_id == user_id).order_by(Document.created_at.desc())
+    result = await session.execute(stmt)
+    return result.scalars().all()
+
 
 # --- Middleware for DB Session ---
 from typing import Callable, Dict, Any, Awaitable

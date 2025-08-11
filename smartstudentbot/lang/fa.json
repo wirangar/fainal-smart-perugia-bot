@@ -193,6 +193,18 @@
   "event_registration_full": "متاسفانه، ظرفیت رویداد «{title}» تکمیل شده است.",
   "event_registration_already": "شما قبلاً برای «{title}» ثبت نام کرده‌اید.",
 
+  "docs_menu": "📄 اسناد شما",
+  "docs_upload_prompt": "لطفاً سندی را که می‌خواهید بارگذاری کنید، ارسال نمایید.",
+  "docs_ask_category": "سند دریافت شد. لطفاً یک دسته‌بندی برای این فایل انتخاب کنید:",
+  "docs_category_general": "عمومی",
+  "docs_category_visa": "ویزا/اقامت",
+  "docs_category_university": "دانشگاه",
+  "docs_upload_success": "✅ سند شما «{filename}» با موفقیت بارگذاری و ذخیره شد.",
+  "docs_upload_failed": "❌ متاسفانه در بارگذاری سند شما خطایی رخ داد. لطفاً بعداً دوباره تلاش کنید.",
+  "docs_no_documents": "شما هنوز هیچ سندی بارگذاری نکرده‌اید. برای افزودن، از دستور /upload استفاده کنید.",
+  "docs_list_title": "اسناد بارگذاری‌شده شما:",
+  "docs_file_entry": "📄 {filename} (دسته‌بندی: {category})",
+
   "search_prompt": "به دنبال چه چیزی هستید؟ عبارت خود را بعد از دستور تایپ کنید، مثال: `/search visa`",
   "search_no_query": "لطفاً یک عبارت برای جستجو بعد از دستور وارد کنید.",
   "search_results_title": "🔍 نتایج جستجو برای «{query}»:",

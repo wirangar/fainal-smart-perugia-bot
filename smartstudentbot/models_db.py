@@ -42,6 +42,11 @@ class EventType(enum.Enum):
     SEMINAR = "seminar"
     WORKSHOP = "workshop"
 
+class AccessLevel(enum.Enum):
+    PRIVATE = "private" # Only the user can see
+    ADMIN_ONLY = "admin_only" # User and admins
+    PUBLIC = "public" # Everyone
+
 class EventStatus(enum.Enum):
     PENDING = "pending" # For appointments needing confirmation
     CONFIRMED = "confirmed"
@@ -192,6 +197,22 @@ class Podcast(Base):
 
     def __repr__(self):
         return f"<Podcast(id={self.id}, title='{self.title}')>"
+
+class Document(Base):
+    __tablename__ = "documents"
+    id = Column(Integer, primary_key=True)
+    user_id = Column(BigInteger, ForeignKey("users.user_id"), nullable=False)
+    file_id = Column(String, nullable=False) # Telegram file_id
+    file_unique_id = Column(String, unique=True)
+    file_name = Column(String)
+    file_type = Column(String) # MIME type
+    category = Column(String, default="general")
+    access_level = Column(SAEnum(AccessLevel), default=AccessLevel.PRIVATE, nullable=False)
+    gdrive_url = Column(String) # Optional link to Google Drive
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+    def __repr__(self):
+        return f"<Document(id={self.id}, name='{self.file_name}', user_id={self.user_id})>"
 
 # --- Helper to create tables ---
 async def create_db_and_tables():
