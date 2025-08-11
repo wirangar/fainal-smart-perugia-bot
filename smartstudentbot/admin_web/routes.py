@@ -8,7 +8,7 @@ from itsdangerous import URLSafeSerializer, BadSignature
 
 from config import ADMIN_USERNAME, ADMIN_PASSWORD, SESSION_SECRET_KEY
 from utils.db_utils import get_db_session
-from models_db import User, News, SuccessStory, StoryStatus
+from models_db import User, News, SuccessStory, StoryStatus, Discount
 
 router = APIRouter()
 templates = Jinja2Templates(directory="smartstudentbot/admin_web/templates")
@@ -131,3 +131,68 @@ async def delete_news_article(
         await session.commit()
 
     return RedirectResponse(url="/admin/news", status_code=status.HTTP_302_FOUND)
+
+# --- Discount Management ---
+@router.get("/discounts", response_class=HTMLResponse)
+async def discount_management_page(request: Request, session: AsyncSession = Depends(get_db_session), user: str = Depends(get_current_user)):
+    if not user:
+        return RedirectResponse(url="/admin/login")
+
+    discount_list = (await session.execute(select(Discount).order_by(Discount.category, Discount.name))).scalars().all()
+    return templates.TemplateResponse("discounts.html", {"request": request, "discount_list": discount_list, "discount": None})
+
+@router.get("/discounts/edit/{discount_id}", response_class=HTMLResponse)
+async def edit_discount_page(request: Request, discount_id: int, session: AsyncSession = Depends(get_db_session), user: str = Depends(get_current_user)):
+    if not user:
+        return RedirectResponse(url="/admin/login")
+
+    discount = (await session.execute(select(Discount).where(Discount.id == discount_id))).scalar_one_or_none()
+    if not discount:
+        raise HTTPException(status_code=404, detail="Discount not found")
+
+    discount_list = (await session.execute(select(Discount).order_by(Discount.category, Discount.name))).scalars().all()
+    return templates.TemplateResponse("discounts.html", {"request": request, "discount_list": discount_list, "discount": discount})
+
+@router.post("/discounts/add")
+async def handle_add_edit_discount(
+    request: Request,
+    session: AsyncSession = Depends(get_db_session),
+    user: str = Depends(get_current_user),
+    discount_id: str = Form(None),
+    name: str = Form(...),
+    category: str = Form(...),
+    description: str = Form(...),
+    location: str = Form(...),
+    validity: str = Form(...)
+):
+    if not user:
+        return RedirectResponse(url="/admin/login")
+
+    if discount_id: # Editing
+        discount = (await session.execute(select(Discount).where(Discount.id == int(discount_id)))).scalar_one_or_none()
+        if not discount:
+            raise HTTPException(status_code=404, detail="Discount not found")
+        discount.name, discount.category, discount.description, discount.location, discount.validity = name, category, description, location, validity
+    else: # Adding new
+        discount = Discount(name=name, category=category, description=description, location=location, validity=validity)
+        session.add(discount)
+
+    await session.commit()
+    return RedirectResponse(url="/admin/discounts", status_code=status.HTTP_302_FOUND)
+
+@router.get("/discounts/delete/{discount_id}")
+async def delete_discount(
+    request: Request,
+    discount_id: int,
+    session: AsyncSession = Depends(get_db_session),
+    user: str = Depends(get_current_user)
+):
+    if not user:
+        return RedirectResponse(url="/admin/login")
+
+    discount = (await session.execute(select(Discount).where(Discount.id == discount_id))).scalar_one_or_none()
+    if discount:
+        await session.delete(discount)
+        await session.commit()
+
+    return RedirectResponse(url="/admin/discounts", status_code=status.HTTP_302_FOUND)
