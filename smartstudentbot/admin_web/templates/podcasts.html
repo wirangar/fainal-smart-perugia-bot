@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}Manage Podcasts - Admin Panel{% endblock %}
+
+{% block content %}
+    <h2>Manage Podcasts</h2>
+
+    <div class="form-container">
+        <h3>Add New Podcast Episode</h3>
+        <form action="/admin/podcasts/add" method="post">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" required>
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" rows="4" required></textarea>
+
+            <label for="audio_file_id">Telegram Audio File ID:</label>
+            <input type="text" id="audio_file_id" name="audio_file_id" required>
+
+            <label for="duration_seconds">Duration (seconds):</label>
+            <input type="number" id="duration_seconds" name="duration_seconds" required>
+
+            <button type="submit">Add Podcast</button>
+        </form>
+    </div>
+
+    <div class="list-container">
+        <h3>Existing Episodes</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Duration (s)</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in podcast_list %}
+                <tr>
+                    <td>{{ item.title }}</td>
+                    <td>{{ item.duration_seconds }}</td>
+                    <td>
+                        <a href="/admin/podcasts/delete/{{ item.id }}" onclick="return confirm('Are you sure?')">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

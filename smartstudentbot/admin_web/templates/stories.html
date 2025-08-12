@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Manage Success Stories - Admin Panel{% endblock %}
+
+{% block content %}
+    <h2>Manage Success Stories</h2>
+    <p>Here you can review, approve, or reject stories submitted by users.</p>
+
+    <div class="list-container">
+        <h3>Submitted Stories</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>User ID</th>
+                    <th>Story (excerpt)</th>
+                    <th>Status</th>
+                    <th>Submitted At</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for story in story_list %}
+                <tr>
+                    <td>{{ story.user_id }}</td>
+                    <td>{{ story.story_text[:80] }}...</td>
+                    <td>
+                        <span class="status-{{ story.status.name.lower() }}">{{ story.status.name }}</span>
+                    </td>
+                    <td>{{ story.created_at.strftime('%Y-%m-%d %H:%M') }}</td>
+                    <td>
+                        {% if story.status.name == 'PENDING' %}
+                            <a href="/admin/stories/approve/{{ story.id }}">Approve</a> |
+                            <a href="/admin/stories/reject/{{ story.id }}">Reject</a>
+                        {% endif %}
+                        <a href="/admin/stories/delete/{{ story.id }}" onclick="return confirm('Are you sure?')">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

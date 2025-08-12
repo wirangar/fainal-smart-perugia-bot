@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Manage Users - Admin Panel{% endblock %}
+
+{% block content %}
+    <h2>Manage Users</h2>
+    <p>This page lists all users who have interacted with the bot.</p>
+
+    <div class="list-container">
+        <h3>All Users</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>User ID</th>
+                    <th>First Name</th>
+                    <th>Username</th>
+                    <th>Language</th>
+                    <th>Joined At</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in user_list %}
+                <tr>
+                    <td>{{ user.user_id }}</td>
+                    <td>{{ user.first_name }}</td>
+                    <td>{{ '@' + user.username if user.username else 'N/A' }}</td>
+                    <td>{{ user.language_code }}</td>
+                    <td>{{ user.created_at.strftime('%Y-%m-%d %H:%M') }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

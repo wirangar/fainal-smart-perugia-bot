@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Manage Events - Admin Panel{% endblock %}
+
+{% block content %}
+    <h2>Manage Events & Appointments</h2>
+    <p>Here you can view and manage all upcoming events and appointment requests.</p>
+
+    <div class="list-container">
+        <h3>All Events</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Type</th>
+                    <th>Date & Time</th>
+                    <th>Status</th>
+                    <th>Created By (User ID)</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for event in event_list %}
+                <tr>
+                    <td>{{ event.title }}</td>
+                    <td>{{ event.event_type.name }}</td>
+                    <td>{{ event.event_datetime.strftime('%Y-%m-%d %H:%M') }}</td>
+                    <td>
+                        <span class="status-{{ event.status.name.lower() }}">{{ event.status.name }}</span>
+                    </td>
+                    <td>{{ event.created_by }}</td>
+                    <td>
+                        {% if event.status.name == 'PENDING' %}
+                            <a href="/admin/events/confirm/{{ event.id }}">Confirm</a> |
+                            <a href="/admin/events/cancel/{{ event.id }}">Cancel</a>
+                        {% endif %}
+                        <a href="/admin/events/delete/{{ event.id }}" onclick="return confirm('Are you sure?')">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

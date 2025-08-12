@@ -109,3 +109,32 @@ footer {
     margin: 0;
     color: #007bff;
 }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.status-pending {
+    color: #f0ad4e;
+    font-weight: bold;
+}
+.status-approved {
+    color: #5cb85c;
+    font-weight: bold;
+}
+.status-rejected {
+    color: #d9534f;
+    font-weight: bold;
+}
