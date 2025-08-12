@@ -217,5 +217,14 @@
   "search_no_results": "No results found for '{query}'.",
   "search_result_in_news": "Found in News: *{title}*",
   "search_result_in_discounts": "Found in Discounts: *{name}* - {description}",
-  "search_result_in_guide": "Found in Guide: *{section_title}*"
+  "search_result_in_guide": "Found in Guide: *{section_title}*",
+
+  "consult_intro": "This form will help us understand your academic profile to provide a consultation. Please fill in the following details.",
+  "consult_ask_field": "1. What is your field of study? (e.g., Computer Science, Arts)",
+  "consult_ask_gpa": "2. What is your GPA? (e.g., 3.4/4.0 or 18/20)",
+  "consult_ask_budget": "3. What is your approximate monthly budget for living expenses in EUR?",
+  "consult_ask_language": "4. What is your language level? (e.g., English B2, Italian A1)",
+  "consult_ask_resume": "5. Please upload your resume/CV (PDF format).",
+  "consult_thanks": "Thank you! We have received your consultation request. An appointment will be created and an admin will contact you soon to confirm the details.",
+  "consult_invalid_pdf": "Please upload a valid PDF file."
 }

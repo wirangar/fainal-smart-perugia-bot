@@ -217,5 +217,14 @@
   "search_no_results": "Nessun risultato trovato per '{query}'.",
   "search_result_in_news": "Trovato nelle notizie: *{title}*",
   "search_result_in_discounts": "Trovato negli sconti: *{name}* - {description}",
-  "search_result_in_guide": "Trovato nella guida: *{section_title}*"
+  "search_result_in_guide": "Trovato nella guida: *{section_title}*",
+
+  "consult_intro": "Questo modulo ci aiuterà a capire il tuo profilo accademico per fornire una consulenza. Per favore, compila i seguenti dettagli.",
+  "consult_ask_field": "1. Qual è il tuo campo di studi? (es. Informatica, Lettere)",
+  "consult_ask_gpa": "2. Qual è la tua media GPA? (es. 28/30 o 3.4/4.0)",
+  "consult_ask_budget": "3. Qual è il tuo budget mensile approssimativo per le spese di soggiorno in EUR?",
+  "consult_ask_language": "4. Qual è il tuo livello di lingua? (es. Inglese B2, Italiano A1)",
+  "consult_ask_resume": "5. Per favore, carica il tuo curriculum/CV (formato PDF).",
+  "consult_thanks": "Grazie! Abbiamo ricevuto la tua richiesta di consulenza. Verrà creato un appuntamento e un amministratore ti contatterà presto per confermare i dettagli.",
+  "consult_invalid_pdf": "Per favore, carica un file PDF valido."
 }
