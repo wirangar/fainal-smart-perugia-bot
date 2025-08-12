@@ -1,7 +1,7 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 
-from models_db import User, UserPoints, UserAchievement, PointsAction, Achievement
+from models_db import User, UserPoints, UserAchievement, PointsAction, Achievement, SuccessStory, RoommateProfile
 
 # Define how many points each action is worth
 ACTION_POINTS = {
@@ -44,7 +44,7 @@ async def award_points(session: AsyncSession, user_id: int, action: PointsAction
     print(f"Awarded {points_to_add} points to user {user_id} for action {action.name}. New total: {user_points.points}")
 
     # After awarding points, check for any new achievements
-    await check_and_grant_achievements(session, user_id, user_points)
+    await check_and_grant_achievements(session, user_id)
 
 async def has_achievement(session: AsyncSession, user_id: int, achievement: Achievement) -> bool:
     """Checks if a user already has a specific achievement."""
@@ -61,20 +61,28 @@ async def grant_achievement(session: AsyncSession, user_id: int, achievement: Ac
         print(f"User {user_id} unlocked achievement: {achievement.name}")
         # In a real scenario, you'd send a notification message to the user here.
 
-async def check_and_grant_achievements(session: AsyncSession, user_id: int, user_points: UserPoints):
-    """Checks all achievement conditions for a user and grants them if met."""
-    # This is a simplified checker. A more complex system might check other conditions.
+async def has_action(session: AsyncSession, user_id: int, action: PointsAction) -> bool:
+    """Checks if a user has performed a specific action by querying the database."""
+    if action == PointsAction.COMPLETE_PROFILE:
+        stmt = select(RoommateProfile).where(RoommateProfile.user_id == user_id).where(RoommateProfile.about_me.isnot(None))
+    elif action == PointsAction.SHARE_SUCCESS_STORY:
+        stmt = select(SuccessStory).where(SuccessStory.user_id == user_id)
+    else:
+        return False # Other actions might not be checkable this way
 
+    result = await session.execute(select(stmt.exists()))
+    return result.scalar()
+
+async def check_and_grant_achievements(session: AsyncSession, user_id: int):
+    """Checks all achievement conditions for a user and grants them if met."""
     # Check for points-based achievements
+    user_points = await get_user_points(session, user_id)
     if user_points.points >= 100:
         await grant_achievement(session, user_id, Achievement.COMMUNITY_HERO)
 
-    # Other event-based achievements would be granted directly by the award_points function
-    # by mapping an action to an achievement.
-    if await has_action(session, user_id, PointsAction.SHARE_SUCCESS_STORY): # Placeholder for a real check
-         await grant_achievement(session, user_id, Achievement.STORY_TELLER)
+    # Check for action-based achievements
+    if await has_action(session, user_id, PointsAction.COMPLETE_PROFILE):
+        await grant_achievement(session, user_id, Achievement.FIRST_STEPS)
 
-async def has_action(session: AsyncSession, user_id: int, action: PointsAction):
-    # This is a placeholder. A real implementation would need to query an audit log
-    # or check for the existence of a success story, profile, etc.
-    return True # Assume true for now for demonstration
+    if await has_action(session, user_id, PointsAction.SHARE_SUCCESS_STORY):
+        await grant_achievement(session, user_id, Achievement.STORY_TELLER)

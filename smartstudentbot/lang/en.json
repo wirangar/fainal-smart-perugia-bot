@@ -184,6 +184,12 @@
   "user_appointment_confirmed": "✅ Your appointment regarding '{topic}' has been confirmed!",
   "user_appointment_cancelled": "❌ Unfortunately, your appointment regarding '{topic}' could not be scheduled at this time. Please try requesting another time.",
 
+  "privacy_delete_warning": "⚠️ **WARNING** ⚠️\nYou are about to permanently delete all your data from this bot, including your profile, points, and all submissions. This action cannot be undone.\n\nAre you sure you want to proceed?",
+  "privacy_delete_confirm_button": "Yes, Delete Everything",
+  "privacy_delete_cancel_button": "Cancel",
+  "privacy_delete_success": "All your data has been successfully deleted. We're sorry to see you go!",
+  "privacy_delete_cancelled": "Action cancelled.",
+
   "events_title": "📅 Upcoming Events",
   "events_intro": "Here are some upcoming events. Click to register!",
   "events_none": "No upcoming events scheduled at the moment.",

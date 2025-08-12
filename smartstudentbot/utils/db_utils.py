@@ -217,6 +217,19 @@ async def get_user_documents(session: AsyncSession, user_id: int) -> list[Docume
     result = await session.execute(stmt)
     return result.scalars().all()
 
+async def delete_user_data(session: AsyncSession, user_id: int):
+    """Deletes a user and all their associated data from the database."""
+    stmt = select(User).where(User.user_id == user_id)
+    result = await session.execute(stmt)
+    user = result.scalar_one_or_none()
+
+    if user:
+        await session.delete(user)
+        await session.commit()
+        print(f"Deleted all data for user {user_id}")
+        return True
+    return False
+
 
 # --- Middleware for DB Session ---
 from typing import Callable, Dict, Any, Awaitable

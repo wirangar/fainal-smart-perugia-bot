@@ -81,7 +81,7 @@ class User(Base):
 class SuccessStory(Base):
     __tablename__ = "success_stories"
     id = Column(Integer, primary_key=True)
-    user_id = Column(BigInteger, ForeignKey("users.user_id"), nullable=False)
+    user_id = Column(BigInteger, ForeignKey("users.user_id", ondelete="CASCADE"), nullable=False)
     story_text = Column(Text, nullable=False)
     media_id = Column(String)
     media_type = Column(String) # 'photo', 'video', etc.
@@ -94,7 +94,7 @@ class SuccessStory(Base):
 class RoommateProfile(Base):
     __tablename__ = "roommate_profiles"
     id = Column(Integer, primary_key=True)
-    user_id = Column(BigInteger, ForeignKey("users.user_id"), unique=True, nullable=False)
+    user_id = Column(BigInteger, ForeignKey("users.user_id", ondelete="CASCADE"), unique=True, nullable=False)
     is_active = Column(Boolean, default=False, nullable=False)
     budget_min = Column(Integer)
     budget_max = Column(Integer)
@@ -109,7 +109,7 @@ class RoommateProfile(Base):
 class Feedback(Base):
     __tablename__ = "feedback"
     id = Column(Integer, primary_key=True)
-    user_id = Column(BigInteger, ForeignKey("users.user_id"), nullable=False)
+    user_id = Column(BigInteger, ForeignKey("users.user_id", ondelete="CASCADE"), nullable=False)
     rating = Column(Integer, nullable=False) # e.g., 1-5
     text = Column(Text)
     created_at = Column(DateTime, default=datetime.utcnow)
@@ -120,7 +120,7 @@ class Feedback(Base):
 class UserPoints(Base):
     __tablename__ = "user_points"
     id = Column(Integer, primary_key=True)
-    user_id = Column(BigInteger, ForeignKey("users.user_id"), nullable=False)
+    user_id = Column(BigInteger, ForeignKey("users.user_id", ondelete="CASCADE"), nullable=False)
     points = Column(Integer, default=0, nullable=False)
     last_updated = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
@@ -130,7 +130,7 @@ class UserPoints(Base):
 class UserAchievement(Base):
     __tablename__ = "user_achievements"
     id = Column(Integer, primary_key=True)
-    user_id = Column(BigInteger, ForeignKey("users.user_id"), nullable=False)
+    user_id = Column(BigInteger, ForeignKey("users.user_id", ondelete="CASCADE"), nullable=False)
     achievement_id = Column(SAEnum(Achievement), nullable=False)
     unlocked_at = Column(DateTime, default=datetime.utcnow)
 
@@ -147,7 +147,7 @@ class Event(Base):
     location = Column(String)
     max_attendees = Column(Integer, default=0) # 0 for unlimited
     status = Column(SAEnum(EventStatus), default=EventStatus.CONFIRMED, nullable=False)
-    created_by = Column(BigInteger, ForeignKey("users.user_id")) # Can be user or admin
+    created_by = Column(BigInteger, ForeignKey("users.user_id", ondelete="SET NULL"), nullable=True) # Can be user or admin
 
     def __repr__(self):
         return f"<Event(id={self.id}, title='{self.title}', type='{self.event_type.name}')>"
@@ -155,8 +155,8 @@ class Event(Base):
 class EventAttendee(Base):
     __tablename__ = "event_attendees"
     id = Column(Integer, primary_key=True)
-    event_id = Column(Integer, ForeignKey("events.id"), nullable=False)
-    user_id = Column(BigInteger, ForeignKey("users.user_id"), nullable=False)
+    event_id = Column(Integer, ForeignKey("events.id", ondelete="CASCADE"), nullable=False)
+    user_id = Column(BigInteger, ForeignKey("users.user_id", ondelete="CASCADE"), nullable=False)
     registered_at = Column(DateTime, default=datetime.utcnow)
 
     def __repr__(self):
@@ -169,7 +169,7 @@ class News(Base):
     content = Column(Text, nullable=False)
     media_id = Column(String)
     media_type = Column(String)
-    posted_by = Column(BigInteger, ForeignKey("users.user_id"))
+    posted_by = Column(BigInteger, ForeignKey("users.user_id", ondelete="SET NULL"), nullable=True)
     created_at = Column(DateTime, default=datetime.utcnow)
 
     def __repr__(self):
@@ -201,7 +201,7 @@ class Podcast(Base):
 class Document(Base):
     __tablename__ = "documents"
     id = Column(Integer, primary_key=True)
-    user_id = Column(BigInteger, ForeignKey("users.user_id"), nullable=False)
+    user_id = Column(BigInteger, ForeignKey("users.user_id", ondelete="CASCADE"), nullable=False)
     file_id = Column(String, nullable=False) # Telegram file_id
     file_unique_id = Column(String, unique=True)
     file_name = Column(String)
