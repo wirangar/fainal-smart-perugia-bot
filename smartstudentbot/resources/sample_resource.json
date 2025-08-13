@@ -1,0 +1,15 @@
+{
+  "display_name": "Sample University Guide",
+  "description": "This is a sample resource file showing how to structure content. This guide contains basic information about the university.",
+  "content": [
+    {
+      "title": "Main Campus",
+      "text": "The main campus is located in the city center and hosts the departments of Law and Political Science."
+    },
+    {
+      "title": "Engineering Campus",
+      "text": "The engineering campus is located in Santa Maria degli Angeli and requires a bus to reach."
+    }
+  ],
+  "author": "SmartStudentBot Team"
+}

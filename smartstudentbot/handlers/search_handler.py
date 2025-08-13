@@ -1,4 +1,5 @@
 import asyncio
+import re
 from aiogram import Router, types
 from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
@@ -8,45 +9,53 @@ from sqlalchemy import select, or_
 from utils.i18n import get_text
 from handlers.cmd_start import UserState
 from models_db import News, Discount
-from handlers.guide_handler import GUIDE_DATA # To search in guide
+from handlers.guide_handler import GUIDE_DATA
 
 router = Router()
 
-async def search_in_db(session: AsyncSession, query: str):
-    """Performs a LIKE search across multiple database tables."""
-    results = []
-    # Search News
-    news_stmt = select(News).where(or_(News.title.ilike(f"%{query}%"), News.content.ilike(f"%{query}%")))
-    news_results = (await session.execute(news_stmt)).scalars().all()
-    for item in news_results:
-        results.append({"type": "news", "item": item})
+def calculate_score(text: str, query: str) -> int:
+    """A simple scoring function based on query occurrences."""
+    return text.lower().count(query.lower())
 
-    # Search Discounts
-    disc_stmt = select(Discount).where(or_(Discount.name.ilike(f"%{query}%"), Discount.description.ilike(f"%{query}%")))
-    disc_results = (await session.execute(disc_stmt)).scalars().all()
-    for item in disc_results:
-        results.append({"type": "discount", "item": item})
+async def search_in_db(session: AsyncSession, query: str, category: str | None = None):
+    """Performs a LIKE search across multiple database tables with scoring."""
+    results = []
+    search_query = f"%{query}%"
+
+    if not category or category == "news":
+        news_stmt = select(News).where(or_(News.title.ilike(search_query), News.content.ilike(search_query)))
+        news_results = (await session.execute(news_stmt)).scalars().all()
+        for item in news_results:
+            score = calculate_score(item.title, query) + calculate_score(item.content, query)
+            results.append({"type": "news", "item": item, "score": score})
+
+    if not category or category == "discounts":
+        disc_stmt = select(Discount).where(or_(Discount.name.ilike(search_query), Discount.description.ilike(search_query)))
+        disc_results = (await session.execute(disc_stmt)).scalars().all()
+        for item in disc_results:
+            score = calculate_score(item.name, query) + calculate_score(item.description, query)
+            results.append({"type": "discount", "item": item, "score": score})
 
     return results
 
 def search_in_guide(query: str, lang: str):
-    """Performs a simple text search in the guide data."""
+    """Performs a simple text search in the guide data with scoring."""
     results = []
-    query = query.lower()
     for key, section in GUIDE_DATA.get("sections", {}).items():
-        text_key = section["text_key"]
-        text_content = get_text(text_key, lang).lower()
-        if query in text_content:
-            title_key = text_key.replace("_intro", "").replace("_content", "")
+        text_content = get_text(section["text_key"], lang)
+        score = calculate_score(text_content, query)
+        if score > 0:
+            title_key = section["text_key"].replace("_intro", "").replace("_content", "")
             title_key = f"guide_topic_{title_key.split('_')[-1]}"
-            results.append({"type": "guide", "item": {"title": get_text(title_key, lang)}})
+            results.append({"type": "guide", "item": {"title": get_text(title_key, lang)}, "score": score})
     return results
 
 @router.message(Command("search"))
 async def cmd_search(message: types.Message, state: FSMContext, session: AsyncSession):
     """
     Handler for the /search command.
-    Searches across various bot content.
+    Searches across various bot content, with optional category filtering.
+    Syntax: /search [category:news|discounts|guide] <query>
     """
     user_data = await state.get_data()
     lang = user_data.get(UserState.language, "en")
@@ -56,13 +65,26 @@ async def cmd_search(message: types.Message, state: FSMContext, session: AsyncSe
         await message.answer(get_text("search_prompt", lang))
         return
 
-    query = args[1]
+    full_query = args[1]
+    category = None
+    query = full_query
 
-    # Perform searches in parallel
+    # Check for category filter e.g., "news: my query"
+    match = re.match(r"(\w+):\s*(.*)", full_query)
+    if match:
+        cat, q = match.groups()
+        if cat in ["news", "discounts", "guide"]:
+            category = cat
+            query = q
+
     db_results, guide_results = await asyncio.gather(
-        search_in_db(session, query),
-        asyncio.to_thread(search_in_guide, query, lang) # Run sync function in thread
+        search_in_db(session, query, category),
+        asyncio.to_thread(search_in_guide, query, lang)
     )
+
+    # Filter guide results if a non-guide category was specified
+    if category and category != "guide":
+        guide_results = []
 
     all_results = db_results + guide_results
 
@@ -70,8 +92,11 @@ async def cmd_search(message: types.Message, state: FSMContext, session: AsyncSe
         await message.answer(get_text("search_no_results", lang).format(query=query))
         return
 
+    # Sort results by score, descending
+    all_results.sort(key=lambda x: x["score"], reverse=True)
+
     response_parts = [get_text("search_results_title", lang).format(query=query)]
-    for res in all_results:
+    for res in all_results[:10]: # Limit to top 10 results
         if res["type"] == "news":
             response_parts.append(get_text("search_result_in_news", lang).format(title=res["item"].title))
         elif res["type"] == "discount":

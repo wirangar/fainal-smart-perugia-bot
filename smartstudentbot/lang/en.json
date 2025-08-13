@@ -226,5 +226,14 @@
   "consult_ask_language": "4. What is your language level? (e.g., English B2, Italian A1)",
   "consult_ask_resume": "5. Please upload your resume/CV (PDF format).",
   "consult_thanks": "Thank you! We have received your consultation request. An appointment will be created and an admin will contact you soon to confirm the details.",
-  "consult_invalid_pdf": "Please upload a valid PDF file."
+  "consult_invalid_pdf": "Please upload a valid PDF file.",
+
+  "resources_title": "📚 Additional Resources",
+  "resources_intro": "Here is a list of available resources. Select one to view its content.",
+  "resources_none_found": "No resources found.",
+  "resources_page_display": "Page {current_page}/{total_pages}",
+  "resources_prev_button": "⬅️ Previous",
+  "resources_next_button": "Next ➡️",
+  "resource_content_title": "📄 Content of: {display_name}",
+  "resource_description": "Description: {description}"
 }

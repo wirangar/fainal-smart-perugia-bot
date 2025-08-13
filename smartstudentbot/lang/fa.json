@@ -226,5 +226,14 @@
   "consult_ask_language": "۴. سطح زبان شما چیست؟ (مثال: انگلیسی B2، ایتالیایی A1)",
   "consult_ask_resume": "۵. لطفاً رزومه/CV خود را (فرمت PDF) بارگذاری کنید.",
   "consult_thanks": "متشکریم! درخواست مشاوره شما دریافت شد. یک قرار ملاقات ایجاد خواهد شد و یک ادمین به زودی برای تأیید جزئیات با شما تماس خواهد گرفت.",
-  "consult_invalid_pdf": "لطفاً یک فایل PDF معتبر بارگذاری کنید."
+  "consult_invalid_pdf": "لطفاً یک فایل PDF معتبر بارگذاری کنید.",
+
+  "resources_title": "📚 منابع تکمیلی",
+  "resources_intro": "در اینجا لیستی از منابع موجود آمده است. یکی را برای مشاهده محتوای آن انتخاب کنید.",
+  "resources_none_found": "هیچ منبعی یافت نشد.",
+  "resources_page_display": "صفحه {current_page}/{total_pages}",
+  "resources_prev_button": "⬅️ قبلی",
+  "resources_next_button": "بعدی ➡️",
+  "resource_content_title": "📄 محتوای: {display_name}",
+  "resource_description": "توضیحات: {description}"
 }

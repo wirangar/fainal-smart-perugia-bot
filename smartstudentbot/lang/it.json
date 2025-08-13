@@ -226,5 +226,14 @@
   "consult_ask_language": "4. Qual è il tuo livello di lingua? (es. Inglese B2, Italiano A1)",
   "consult_ask_resume": "5. Per favore, carica il tuo curriculum/CV (formato PDF).",
   "consult_thanks": "Grazie! Abbiamo ricevuto la tua richiesta di consulenza. Verrà creato un appuntamento e un amministratore ti contatterà presto per confermare i dettagli.",
-  "consult_invalid_pdf": "Per favore, carica un file PDF valido."
+  "consult_invalid_pdf": "Per favore, carica un file PDF valido.",
+
+  "resources_title": "📚 Risorse aggiuntive",
+  "resources_intro": "Ecco un elenco delle risorse disponibili. Selezionane una per visualizzarne il contenuto.",
+  "resources_none_found": "Nessuna risorsa trovata.",
+  "resources_page_display": "Pagina {current_page}/{total_pages}",
+  "resources_prev_button": "⬅️ Precedente",
+  "resources_next_button": "Successivo ➡️",
+  "resource_content_title": "📄 Contenuto di: {display_name}",
+  "resource_description": "Descrizione: {description}"
 }
